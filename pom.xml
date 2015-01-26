@@ -52,7 +52,7 @@
 
 	<!-- No dependencies. We need to copy the environment jars in RAW format, 
 		not for resolving links. There is no source code anyway to resolve anything 
-		anyway. -->
+		anyway. Check maven-dependency-plugin below. -->
 
 	<repositories>
 		<repository>
@@ -113,6 +113,11 @@
 						</goals>
 						<configuration>
 							<artifactItems>
+
+								<!-- Here are the items to couple to the MASs. IMPORTANT: If versions 
+									below are changed, the MAS2G files should be fixed accordingly. This has 
+									to be done manually. -->
+
 								<artifactItem>
 									<groupId>eishub</groupId>
 									<artifactId>ElevatorSim</artifactId>
@@ -131,6 +136,15 @@
 									<outputDirectory>${project.build.directory}/BlocksWorld/</outputDirectory>
 								</artifactItem>
 
+								<artifactItem>
+									<groupId>eishub.bw4t</groupId>
+									<artifactId>bw4t-client</artifactId>
+									<version>3.8.0</version>
+									<classifier>jar-with-dependencies</classifier>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/BW4T/</outputDirectory>
+								</artifactItem>
 
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>

@@ -1,5 +1,5 @@
 environment{
- env = "bw4t-client-3.7.1-SNAPSHOT-jar-with-dependencies.jar" .
+ env = "bw4t-client-3.8.0-jar-with-dependencies.jar" .
 	% insert proper initialization parameters and values on the next line, or remove it.
  init = [ clientip ="localhost", clientport="2000", serverip = "localhost", serverport = "8000", agentcount = "0", humancount = "3", launchgui = "true", goal = "true", goalhuman="true" ] .
 }

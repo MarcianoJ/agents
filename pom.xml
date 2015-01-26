@@ -209,6 +209,15 @@
 									<outputDirectory>${project.build.directory}/VacuumWorld/</outputDirectory>
 								</artifactItem>
 								
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>wumpusworld</artifactId>
+									<version>1.2.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/WumpusAgents/</outputDirectory>
+								</artifactItem>
+								
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>

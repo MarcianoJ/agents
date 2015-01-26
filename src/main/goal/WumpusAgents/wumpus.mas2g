@@ -1,5 +1,5 @@
 environment {
-	env  = "wumpusworld-1.2.0-SNAPSHOT.jar".
+	env  = "wumpusworld-1.2.0.jar".
 	
 	init = [file = "WumpusWorlds/wumpus1.wld"].
 }

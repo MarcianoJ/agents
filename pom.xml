@@ -173,7 +173,15 @@
 									<outputDirectory>${project.build.directory}/Elevator/</outputDirectory>
 								</artifactItem>
 
-
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>HelloWorldEnvironment</artifactId>
+									<version>1.1.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/HelloWorld/</outputDirectory>
+								</artifactItem>
+								
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>

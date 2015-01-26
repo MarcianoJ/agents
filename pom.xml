@@ -200,6 +200,15 @@
 									<outputDirectory>${project.build.directory}/Tower/</outputDirectory>
 								</artifactItem>
 
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>vacuumworld</artifactId>
+									<version>1.0.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/VacuumWorld/</outputDirectory>
+								</artifactItem>
+								
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>

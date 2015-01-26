@@ -181,7 +181,7 @@
 									<overWrite>false</overWrite>
 									<outputDirectory>${project.build.directory}/HelloWorld/</outputDirectory>
 								</artifactItem>
-								
+
 								<artifactItem>
 									<groupId>eishub</groupId>
 									<artifactId>Tic-Tac-Toe</artifactId>
@@ -190,7 +190,16 @@
 									<overWrite>false</overWrite>
 									<outputDirectory>${project.build.directory}/TicTacToe/</outputDirectory>
 								</artifactItem>
-								
+
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>tower</artifactId>
+									<version>1.2.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/Tower/</outputDirectory>
+								</artifactItem>
+
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>

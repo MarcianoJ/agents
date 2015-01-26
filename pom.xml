@@ -9,7 +9,7 @@
 	</properties>
 
 
-	<groupId>goalhub</groupId>
+	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
 	<version>0.1.0</version>
 	<name>goal agents</name>
@@ -266,8 +266,7 @@
 				<configuration>
 					<server>github</server>
 					<!-- git commit message -->
-					<message>Maven artifacts for ${project.name} version
-						${project.version}</message>
+					<message>Maven artifacts for ${project.name} version ${project.version}</message>
 					<!-- matches distribution management repository url above -->
 					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 					<!-- remote branch name -->
@@ -279,11 +278,12 @@
 					<!-- github repo name -->
 					<repositoryName>mvn-repo</repositoryName>
 					<!-- github organization -->
-					<repositoryOwner>eishub</repositoryOwner>
+					<repositoryOwner>goalhub</repositoryOwner>
 				</configuration>
 				<executions>
 					<!-- run site-maven-plugin as part of the build's 'deploy' phase -->
 					<execution>
+						<id>git-deploy</id>
 						<goals>
 							<goal>site</goal>
 						</goals>

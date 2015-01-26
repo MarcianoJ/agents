@@ -146,6 +146,17 @@
 									<outputDirectory>${project.build.directory}/BW4T/</outputDirectory>
 								</artifactItem>
 
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>Carriage</artifactId>
+									<version>1.0.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/Carriage/</outputDirectory>
+								</artifactItem>
+
+
+
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>
 							<overWriteReleases>false</overWriteReleases>

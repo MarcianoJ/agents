@@ -155,7 +155,14 @@
 									<outputDirectory>${project.build.directory}/Carriage/</outputDirectory>
 								</artifactItem>
 
-
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>Domestic</artifactId>
+									<version>1.2.0</version>
+									<type>jar</type>
+									<overWrite>false</overWrite>
+									<outputDirectory>${project.build.directory}/Domestic/</outputDirectory>
+								</artifactItem>
 
 							</artifactItems>
 							<outputDirectory>${project.build.directory}</outputDirectory>

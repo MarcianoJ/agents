@@ -13,9 +13,8 @@ init module {
 		% ownerhasbeer. Holds if the owner has his beer.
 	}
 	goals{
-		% The following goals may be adopted:
+		% The following goal may be adopted:
 		% - holdingbeer: have beer in hands.
-		% - servebeer : bring beer to owner.
 	}
 	actionspec{
 		% Opens the fridge if robot is at fridge and not holding a beer.
@@ -51,10 +50,9 @@ main module {
 	program[order=random] {
 		% always prepare to serve beer.
 		if bel( not(holdingbeer) ) then adopt( holdingbeer ).		
-		if bel( not(servebeer), not(ownerhasbeer) ) then adopt( servebeer ).
 		
 		if a-goal( holdingbeer ) then getbeer.
-		if bel( holdingbeer ), a-goal( servebeer ) then servebeer.
+		if bel( holdingbeer ) then servebeer.
 	}
 }
 

@@ -11,7 +11,7 @@
 
 	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
-	<version>0.1.0</version>
+	<version>0.2.0</version>
 	<name>goal agents</name>
 	<description>GOAL agents ready to run from GOAL, 
 	complete with latest version of the environments.</description>
@@ -80,7 +80,6 @@
 							<resources>
 								<resource>
 									<directory>src/main/goal</directory>
-									<filtering>true</filtering>
 								</resource>
 							</resources>
 						</configuration>

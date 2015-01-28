@@ -18,14 +18,14 @@ event module {
 			do adopt( have(Ingredient) ) .
 		% If we need an ingredient for making a product, adopt a goal to have it (only if we do not have it yet).
 		forall goal( have(Product) ), bel( requiredFor(Product, Ingredient) ) do adopt( have(Ingredient) ) .
-
+ 
 
 		%%%%% Send messages to other machines %%%%%
 		
 		% Ask all other machines what they can provide.
-		if true then allother.sendonce( ?canProvide ) .
+		if true then allother.sendonce( ?canProvide(_,_) ) .
 		% Answer questions about what we can make.
-		forall bel( received(Sender, int(canProvide)), me(Me), canProvide(Me, Products) )
+		forall bel( received(Sender, int(canProvide(_,_))), me(Me), canProvide(Me, Products) )
 			do (Sender).sendonce( :canProvide(Me, Products) ) .
 		% If a machine told us it needs an ingredient and we have it, tell it so
 		% (and delete the request because we served it as telling is taken to be the same as providing here).

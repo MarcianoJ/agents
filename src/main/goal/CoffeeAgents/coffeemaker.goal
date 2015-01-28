@@ -27,7 +27,8 @@ init module {
 }
 
 main module[exit=nogoals] {
-	program {
+	program [order=linearall]{
+		if true then event. % force always evaluate events module.
 		% If we want to have a Product, then make it.
 		% Note that the action's precondition checks if we have what it takes.
 		if a-goal( have(Product) ) then make(Product).

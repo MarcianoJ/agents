@@ -11,7 +11,7 @@
 
 	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
-	<version>0.2.0</version>
+	<version>0.2.1</version>
 	<name>goal agents</name>
 	<description>GOAL agents ready to run from GOAL, 
 	complete with latest version of the environments.</description>
@@ -106,7 +106,6 @@
 					</execution>
 
 					<execution>
-						<id>copy</id>
 						<phase>package</phase>
 						<goals>
 							<goal>copy</goal>
@@ -225,6 +224,28 @@
 						</configuration>
 					</execution>
 
+					<execution>
+						<id>unpack</id>
+						<phase>package</phase>
+						<goals>
+							<goal>unpack</goal>
+						</goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>eishub.bw4t</groupId>
+									<artifactId>doc</artifactId>
+									<version>1.0.0-SNAPSHOT</version>
+									<type>jar</type>
+									<outputDirectory>${dest}BW4T/</outputDirectory>
+									<overWrite>false</overWrite>
+								</artifactItem>
+							</artifactItems>
+							<!--  needed to get outputDirectory inside the items work. Why? -->
+							<outputDirectory>${project.build.directory}/agents/</outputDirectory>
+							
+						</configuration>
+					</execution>
 				</executions>
 			</plugin>
 
@@ -265,7 +286,8 @@
 				<configuration>
 					<server>github</server>
 					<!-- git commit message -->
-					<message>Maven artifacts for ${project.name} version ${project.version}</message>
+					<message>Maven artifacts for ${project.name} version
+						${project.version}</message>
 					<!-- matches distribution management repository url above -->
 					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 					<!-- remote branch name -->

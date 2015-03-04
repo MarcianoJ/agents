@@ -2,7 +2,6 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<dest>${project.build.directory}/agents/</dest>
@@ -16,8 +15,6 @@
 	<description>GOAL agents ready to run from GOAL, 
 	complete with latest version of the environments.</description>
 	<url>http://www.github.com/goalhub/agents</url>
-
-
 
 	<licenses>
 		<license>
@@ -112,7 +109,6 @@
 						</goals>
 						<configuration>
 							<artifactItems>
-
 								<!-- Here are the items to couple to the MASs. IMPORTANT: If versions 
 									below are changed, the MAS2G files should be fixed accordingly. This has 
 									to be done manually. -->
@@ -243,7 +239,6 @@
 							</artifactItems>
 							<!--  needed to get outputDirectory inside the items work. Why? -->
 							<outputDirectory>${project.build.directory}/agents/</outputDirectory>
-							
 						</configuration>
 					</execution>
 				</executions>
@@ -314,8 +309,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
-
-
+	
 </project>

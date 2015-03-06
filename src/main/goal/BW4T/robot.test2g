@@ -1,0 +1,18 @@
+masTest {
+	% Test agent 'robot' from 'bw4t.mas2g' for at most 5 minutes.
+	mas = "bw4t.mas2g".
+	timeout = 300.
+	robot {
+		test {
+			evaluate {
+				% Example: an agent should not drop a block outside a room.
+				never do(putDown), bel(not(in(_))).
+				
+				% Assignment III.1: create test conditions for the mandatory requirements here.
+				
+				% Assignment III.2: add any additional conditions for furhter requirements here. 
+				
+			} in do main until bel(sequence(Colors),length(Colors,L),sequenceIndex(L)). % delivered all blocks.
+		}
+	}
+}

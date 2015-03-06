@@ -3,7 +3,8 @@ init module {
 		% A room is a place with exactly one neighbour, i.e., there is only one way to get to and from that place.
 		room(PlaceID) :- zone(_,PlaceID,_,_,Neighbours), length(Neighbours,1).
 		
-		% Assignment III.2: insert a definition of the predicate "nextColorInSeq(Color)".
+		% Assignment II.2: insert a definition of the predicate "nextColorInSeq(Color)".
+		
 	}
 	program {
 		% Store map information, i.e., navigation points in the agent's belief base.
@@ -15,7 +16,8 @@ init module {
 		% Adopt initial goals.
 		forall bel( room(Place) ) do adopt( in(Place) ).
 
-		% Assignment III.1a: insert rules for processing "sendonce" percepts that are sent only at the beginning of a session.
+		% Assignment II.1a: insert rules for processing "sendonce" percepts that are sent only at the beginning of a session.
+		
 	}	
 	actionspec {
 		% The goTo action makes the agent move to a place (location) in the BW4T environment.
@@ -25,11 +27,12 @@ init module {
 			post { true }
 		}
 
-		% Assignment III.3a: insert a specification for the goToBlock(Block) action.
+		% Assignment II.3a: insert a specification for the goToBlock(Block) action.
 
-		% Assignment III.3b: insert a specification for the pickUp action.
+		% Assignment II.3b: insert a specification for the pickUp action.
 
-		% Assignment III.3c: insert a specification for the putDown action.
+		% Assignment II.3c: insert a specification for the putDown action.
+		
 	}
 }
 
@@ -37,31 +40,24 @@ main module {
 	program {
 		if a-goal( in(Place) ) then goTo(Place).
 
-		% Assignment III.5: insert code that allows an agent to systematically search for blocks.
+		% Assignment II.5: insert code that allows an agent to systematically search for blocks.
 
-		% Assignment III.6: insert code that makes the agent deliver a block when it 
+		% Assignment II.6: insert code that makes the agent deliver a block when it 
 		%   knows about a block that can be delivered.
-
-		% Assignment IV.2: implement dealing with unexpected block removal.
-
-		% Assignment IV.3: implement dealing with unexpected block delivery.
+		
 	}
 }
 
 event module {
 	program {
-	    % Update the agent's state of movement
+	    % Update the agent's state of movement.
 		forall bel( state(State), percept(state(NewState)) ) do delete( state(State) ) + insert( state(NewState) ).
 		
-		% Record when we are entering or leaving a room
+		% Record when we are entering or leaving a room.
 		forall bel( percept(in(Place)) ) do insert( in(Place) ).
 		forall bel( percept(not(in(Place))) ) do delete( in(Place) ).
 
-		% Assignment III.1b: insert rules for handling percepts other than "sendonce" percepts.
-
-		%%%%%%%%%%%%%%%%%% sending messages and processing received messages %%%%%%%%%%%%%%%%%%%%
-		% Assignment IV.5b: insert one or more rule(s) for messages sent by other agents.
-
-		% Assignment IV.5a: insert send-actions to implement the communication of your choice.
+		% Assignment II.1b: insert rules for handling percepts other than "sendonce" percepts.
+		
 	}
 }

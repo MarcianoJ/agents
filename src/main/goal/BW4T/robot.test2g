@@ -8,9 +8,9 @@ masTest {
 				% Example: an agent should not drop a block outside a room.
 				never do(putDown), bel(not(in(_))).
 				
-				% Assignment III.1: create test conditions for the mandatory requirements here.
+				% Assignment 3.1: insert test conditions for the mandatory requirements.
 				
-				% Assignment III.2: add any additional conditions for furhter requirements here. 
+				% Assignment 3.2: insert any additional conditions for furhter requirements. 
 				
 			} in do main until bel(sequence(Colors),length(Colors,L),sequenceIndex(L)). % delivered all blocks.
 		}

@@ -3,7 +3,11 @@ init module {
 		% A room is a place with exactly one neighbour, i.e., there is only one way to get to and from that place.
 		room(PlaceID) :- zone(_,PlaceID,_,_,Neighbours), length(Neighbours,1).
 		
-		% Assignment II.2: insert a definition of the predicate "nextColorInSeq(Color)".
+		% Exercise 2.2: insert a definition of the predicate "nextColorInSeq(Color)".
+
+		% Exercise 2.5c: insert knowledge needed for block searching. (if needed)
+		
+		% Exercise 2.6c: insert knowledge needed for block delivery. (if needed)
 		
 	}
 	program {
@@ -16,7 +20,8 @@ init module {
 		% Adopt initial goals.
 		forall bel( room(Place) ) do adopt( in(Place) ).
 
-		% Assignment II.1a: insert rules for processing "sendonce" percepts that are sent only at the beginning of a session.
+		% Exercise 2.1a: insert rules for processing percepts that are sent only at the beginning of a session, 
+		%  and/or need to be initialized.
 		
 	}	
 	actionspec {
@@ -27,11 +32,11 @@ init module {
 			post { true }
 		}
 
-		% Assignment II.3a: insert a specification for the goToBlock(Block) action.
+		% Exercise 2.3a: insert a specification for the goToBlock(Block) action.
 
-		% Assignment II.3b: insert a specification for the pickUp action.
+		% Exercise 2.3b: insert a specification for the pickUp action.
 
-		% Assignment II.3c: insert a specification for the putDown action.
+		% Exercise 2.3c: insert a specification for the putDown action.
 		
 	}
 }
@@ -40,9 +45,9 @@ main module {
 	program {
 		if a-goal( in(Place) ) then goTo(Place).
 
-		% Assignment II.5: insert code that allows an agent to systematically search for blocks.
+		% Exercise 2.5a: insert code for action rules that allows an agent to systematically search for blocks.
 
-		% Assignment II.6: insert code that makes the agent deliver a block when it 
+		% Exercise 2.6a: insert code for action rules that makes the agent deliver a block when it 
 		%   knows about a block that can be delivered.
 		
 	}
@@ -57,7 +62,12 @@ event module {
 		forall bel( percept(in(Place)) ) do insert( in(Place) ).
 		forall bel( percept(not(in(Place))) ) do delete( in(Place) ).
 
-		% Assignment II.1b: insert rules for handling percepts other than "sendonce" percepts.
+		% Exercise 2.1b: insert rules for handling percepts other than "sendonce" percepts.
+		
+		% Exercise 2.5b: insert code for goal management that allows an agent to systematically search for blocks. (if needed)
+		
+		% Exercise 2.6b: insert code for goal management that makes the agent deliver a block when it 
+		%   knows about a block that can be delivered. (if needed)
 		
 	}
 }

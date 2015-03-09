@@ -39,7 +39,7 @@ init module {
 	}
 }
 
-main module {
+main module [exit=nogoals] {
 	program {
 		if a-goal( in(Place) ) then goTo(Place).
 

@@ -5,9 +5,7 @@ init module {
 		
 		% Exercise 2.2: insert a definition of the predicate "nextColorInSeq(Color)".
 
-		% Exercise 2.5c: insert knowledge needed for block searching. (if needed)
-		
-		% Exercise 2.6c: insert knowledge needed for block delivery. (if needed)
+		% Exercise 2.5 + 2.6: (optional) if needed, insert additional knowledge here.
 		
 	}
 	program {

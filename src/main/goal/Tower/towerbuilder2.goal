@@ -57,19 +57,24 @@ init module{
 }
 	
 main module{
-	program{
+	program [order=linear]{
 		% pick up a block if you can and want to.
 		if a-goal( holding(X) ) then pickup(X).
 		
 		% put a block you're holding down, ideally where you want it, but otherwise put it on the table.
-		if bel( holding(X) ) then {
-			if constructiveMove(X,Y) then putdown(X, Y).
-			if true then putdown(X, table).
-		}
+		if bel( holding(X) ) then placeBlock(X).
 
 		% otherwise, there is nothing to do, so we can move the gripper to the top left corner.
 		% no need to check whether we're holding a block because of linear order.
 		if true then nil.
+	}
+}
+
+% place the block we are holding in the right place.
+module placeBlock(X) [exit=always]{
+	program[order=linear] {
+			if constructiveMove(X,Y) then putdown(X, Y).
+			if true then putdown(X, table).
 	}
 }
 

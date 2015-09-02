@@ -1,3 +1,5 @@
+use carriage as knowledge.
+
 define push with
 	pre{ true }
 	post{ true }

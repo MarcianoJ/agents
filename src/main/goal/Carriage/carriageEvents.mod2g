@@ -1,0 +1,6 @@
+use carriage as knowledge.
+use carriageAct.
+
+module carriageEvents {
+		forall percept(carriagePos(X)) do insert(carriagePos(X)).
+}

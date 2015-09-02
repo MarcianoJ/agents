@@ -1,0 +1,8 @@
+define push with
+	pre{ true }
+	post{ true }
+
+define wait with
+	pre{ true }
+	post{ true }
+	

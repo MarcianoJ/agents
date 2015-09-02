@@ -1,0 +1,10 @@
+use "Carriage-1.0.0.jar" as environment.
+
+define carriage as agent {
+	use carriage as main module.
+	use carriageEvents as event module.
+}
+
+launchpolicy{
+	when * launch carriage.
+}

@@ -1,0 +1,2 @@
+have(water). 
+have(beans).

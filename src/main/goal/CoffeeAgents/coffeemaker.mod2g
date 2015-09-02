@@ -5,35 +5,14 @@
 % learn this by asking all other agents what they can provide. The coffee machine is very
 % cooperative and will always provide what other machines need if it has what is requested
 % for, or, alternatively, adopt a goal to make what is requested.
+use coffee as knowledge.
 
-init module {
-	#import "coffee.pl".
-    beliefs {
-        have(water). have(beans).
-    }
-    goals {
-        have(coffee).
-    }
-	program {
-		if true then event.
-	}
-    actionspec {
-		% A Product can be made if we have all the required Ingredients and this machine has the ability to make it.
-        make(Product)@int {
-            pre { me(Me), canMakeIt(Me, Product), forall(requiredFor(Product, Ingredient), have(Ingredient)) }
-            post { have(Product) }
-        }
-    }
-}
+order=linearall.
 
-main module[exit=nogoals] {
-	program [order=linearall]{
+ module main [exit=nogoals] {
 		if true then event. % force always evaluate events module.
 		% If we want to have a Product, then make it.
 		% Note that the action's precondition checks if we have what it takes.
 		if a-goal( have(Product) ) then make(Product).
-	}
 }
 
-% The coffeegrinder and coffeemaker agents both share the same event module.
-#import "event.mod2g".

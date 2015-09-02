@@ -1,0 +1,7 @@
+use coffee as knowledge.
+	
+% A Product can be made if we have all the required Ingredients and this machine has the ability to make it.
+define make(Product) as internal with 
+	pre { me(Me), canMakeIt(Me, Product), forall(requiredFor(Product, Ingredient), have(Ingredient)) }
+	post { have(Product) }
+        

@@ -1,0 +1,14 @@
+% The coffee machine's main function is to supply a user with nice steaming fresh cups of
+% coffee. It knows how to make coffee and espresso. For making coffee it needs grounds
+% (see imported coffee.pl). Whenever it needs grounds it will request another machine it
+% knows that can provide grounds to provide those (see imported event.mod2g). It will
+% learn this by asking all other agents what they can provide. The coffee machine is very
+% cooperative and will always provide what other machines need if it has what is requested
+% for, or, alternatively, adopt a goal to make what is requested.
+use coffee as knowledge.
+use coffeeMakerBeliefs as beliefs.
+use coffeeMakerGoals as goals.
+
+module init {
+		if true then event.
+}

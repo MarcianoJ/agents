@@ -1,5 +1,8 @@
 %%%%% Common knowledge of ingredients that are needed for making a coffee product. %%%%%
 
+:- dynamic(have/1).
+:- dynamic(canProvide/2).
+
 requiredFor(coffee, water).
 requiredFor(coffee, grounds).
 requiredFor(espresso, coffee).

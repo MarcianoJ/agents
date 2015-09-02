@@ -1,0 +1,11 @@
+use elevator as knowledge.
+
+% The action goto(Level, Dir) moves the elevator car to floor Level. It can
+% only be performed if the elevator car is docked and not moving, i.e.,
+% atFloor(Here) holds for some Here.
+% When the elevator arrives at the requested floor, the Dir light will turn on.
+define	goto(Level, Dir) with
+   pre{ atFloor(Here), dir(DirNow) }
+   post{ not(dir(DirNow)), dir(Dir) }
+
+	

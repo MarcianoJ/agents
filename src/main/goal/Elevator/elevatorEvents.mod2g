@@ -1,0 +1,37 @@
+use elevator as knowledge.
+
+module event {
+		%%%%% Percept Processing %%%%%
+		
+		% The atFloor(Level) percept is received only when elevator has stopped at a floor Level.
+		forall  percept(atFloor(Level)), bel(not(atFloor(Level)) ) do insert( atFloor(Level) ).
+		forall bel( atFloor(Level)), not(percept(atFloor(Level)))  do delete( atFloor(Level) ).
+				
+		% The fButton(Level,Dir) percept indicates that the up or down (Dir) button on floor Level has been pressed.
+		forall percept(fButtonOn(Level,Dir)), bel(not(fButtonOn(Level,Dir)) ) do insert( fButtonOn(Level,Dir) ).
+		forall bel( fButtonOn(Level,Dir)), not(percept(fButtonOn(Level,Dir)))  do delete( fButtonOn(Level,Dir) ).
+		
+		% The doorState percept is received only if the door state has changed.
+		% So we do not need to check whether the New value is different from the Old value to avoid unnecessary updates.
+		forall percept(doorState(New)), bel(doorState(Old)) do insert( not(doorState(Old)), doorState(New) ).
+
+
+		%%%%% Goal Management %%%%%
+
+		% The elevator agent changes its plans only while it is docked, i.e., at a floor
+		% and not moving.
+		
+		% Adopt new stops that are on this agent's route.
+		forall bel( fButtonOn(Level, Dir), onRoute(Level, Dir) ) do adopt( atFloor(Level), dir(Dir) ).
+				
+		% The eButton(Level) percept is received when the elevator button on floor Level has been pressed.
+		% In that case, the agent will adopt a goal to service that floor. It is ASSUMED that a button for a floor is
+		% pressed that is "on route", i.e. in the direction the elevator is currently travelling.
+		forall percept(eButtonOn(Level)), bel(dir(Dir)) do adopt( atFloor(Level), dir(Dir) ).
+
+		% If there are no current goals to pursue, then adopt a goal to service an arbitrary floor for
+		% which a floor button has been pressed that is not already being serviced.
+		if bel( atFloor(Any) ), not(goal( atFloor(AnyL) )), bel( fButtonOn(L,D), doorState(closed) )
+			then adopt( atFloor(L), dir(D) ).
+}
+

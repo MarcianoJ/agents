@@ -1,0 +1,9 @@
+% init function shared with grinder and maker. Just calls event module 
+use coffee as knowledge.
+use coffee as actionspec.
+use event.
+
+module init  {
+		if true then event.
+}
+    

@@ -6,6 +6,8 @@
 % cooperative and will always provide what other machines need if it has what is requested
 % for, or, alternatively, adopt a goal to make what is requested.
 use coffee as knowledge.
+use coffeeMakerBeliefs as beliefs.
+use coffeeMakerGoals as goals.
 
 order=linearall.
 

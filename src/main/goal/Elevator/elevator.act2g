@@ -7,3 +7,5 @@ use elevator as knowledge.
 define	goto(Level, Dir) with
    pre{ atFloor(Here), dir(DirNow) }
    post{ not(dir(DirNow)), dir(Dir) }
+
+	

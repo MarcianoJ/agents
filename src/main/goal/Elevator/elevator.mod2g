@@ -1,13 +1,29 @@
 use elevator as knowledge.
-use elevatorBeliefs as beliefs.
-use elevatorGoals as goals.
 use elevator as actionspec.
 
 module main {
-	% Goto the nearest floor that the agent wants to go to.
-	if a-goal( atFloor(Level), dir(Dir) ),
-		bel( atFloor(Here), Distance is abs(Level-Here) ),
-	    not(a-goal( atFloor(OtherLevel),
-			OtherDistance is abs(OtherLevel-Here), OtherDistance<Distance) )
-	then goto(Level, Dir).
+		% Goto the nearest floor that the agent wants to go to.
+		if a-goal( atFloor(Level), dir(Dir) ),
+			bel( atFloor(Here), Distance is abs(Level-Here) ),
+		    not(a-goal( atFloor(OtherLevel),
+				OtherDistance is abs(OtherLevel-Here), OtherDistance<Distance) )
+		then goto(Level, Dir).
 }
+
+init module { 
+
+	beliefs{
+		% The direction that will be shown to the people at the next stop.
+		% This remains the intended direction of movement until there are no more
+		% planned stops in that direction.
+		dir(down).
+		% Initially, it is unknown whether doors are open or closed.
+		doorState(unknown).
+	}
+	goals{
+		atFloor(1), dir(up).
+	}
+
+}
+	
+	

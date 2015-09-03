@@ -7,11 +7,11 @@
 % what is requested.
 use coffee as knowledge.
 use coffee as actionspec.
-use event.
+use eventC.
 order = linearall.
 
 module main {
-	if true then event. % force always evaluate events module.
+	if true then eventC. % force always evaluate events module.
 	% If we want to have a Product, then make it.
 	% Note that the action's precondition checks if we have what it takes.
 	if a-goal( have(Product) ) then make(Product).

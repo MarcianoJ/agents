@@ -1,6 +1,0 @@
-% init function shared with grinder and maker. Just calls event module
-use event.
-
-module init  {
-	if true then event.
-}

@@ -1,6 +1,6 @@
 use elevator as knowledge.
 
-module event {
+module elevatorEvents {
 	%%%%% Percept Processing %%%%%
 		
 	% The atFloor(Level) percept is received only when elevator has stopped at a floor Level.

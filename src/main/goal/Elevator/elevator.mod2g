@@ -3,7 +3,7 @@ use elevatorBeliefs as beliefs.
 use elevatorGoals as goals.
 use elevator as actionspec.
 
-module main {
+module elevator {
 	% Goto the nearest floor that the agent wants to go to.
 	if a-goal( atFloor(Level), dir(Dir) ),
 		bel( atFloor(Here), Distance is abs(Level-Here) ),

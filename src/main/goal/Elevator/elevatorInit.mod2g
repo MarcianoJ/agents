@@ -1,7 +1,0 @@
-use elevator as knowledge.
-use elevatorBeliefs as beliefs.
-use elevatorGoals as goals.
-
-module init {
-}	
-

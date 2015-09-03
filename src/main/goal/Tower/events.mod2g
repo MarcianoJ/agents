@@ -1,0 +1,13 @@
+use tower as knowledge.
+
+module events {
+	% assumes full observability
+	forall bel( block(X)), not(percept(block(X)))  do delete( block(X) ).
+	forall percept(block(X)), bel(not(block(X)) ) do insert( block(X) ).
+	
+	forall bel( holding(X)), not(percept(holding(X))) do delete( holding(X) ).
+	forall percept(holding(X)),  bel( not(holding(X)) ) do insert( holding(X) ).
+	
+	forall bel( on(X,Y)), not(percept(on(X,Y))) do delete( on(X,Y) ).
+	forall  percept(on(X,Y)), bel(not(on(X,Y)) ) do insert( on(X,Y) ).
+}

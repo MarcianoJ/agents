@@ -1,11 +1,11 @@
-environment  {
-	env = "tower-1.2.0.jar".
-}
-	
-agentfiles {
-	"towerbuilder.goal".
+use "tower-1.2.0.jar" as environment.
+
+
+define towerbuilder as agent {
+	use towerbuilder as main module.
+	use events as event module.
 }
 
 launchpolicy {
-    when entity@env do launch gripper:towerbuilder.
+    when * launch towerbuilder.
 }

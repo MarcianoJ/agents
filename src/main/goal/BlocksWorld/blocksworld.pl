@@ -1,5 +1,6 @@
-:- dynamic(on/2).
-:- dynamic(clear/1).
+:- dynamic(on/2). % this should not be needed? It's already a goal
+:- dynamic(clear/1). % not necessary? It's already a knowledge
+:- dynamic(target/2). % not needed? It's adopted as GOAL.
 
 % only blocks can be on top of another object.
 block(X) :- on(X, _).

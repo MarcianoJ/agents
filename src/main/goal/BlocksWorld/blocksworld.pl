@@ -1,5 +1,5 @@
 :- dynamic(on/2).
-:- dynamic(clear/0).
+:- dynamic(clear/1).
 
 % only blocks can be on top of another object.
 block(X) :- on(X, _).

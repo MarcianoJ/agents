@@ -6,15 +6,16 @@
 % cooperative and will always provide what other machines need if it has what is requested
 % for, or, alternatively, adopt a goal to make what is requested.
 use coffee as knowledge.
+use coffee as actionspec.
 use coffeeMakerBeliefs as beliefs.
 use coffeeMakerGoals as goals.
+use event.
+exit = nogoals.
+order = linearall.
 
-order=linearall.
-
- module main [exit=nogoals] {
-		if true then event. % force always evaluate events module.
-		% If we want to have a Product, then make it.
-		% Note that the action's precondition checks if we have what it takes.
-		if a-goal( have(Product) ) then make(Product).
+module main {
+	if true then event. % force always evaluate events module.
+	% If we want to have a Product, then make it.
+	% Note that the action's precondition checks if we have what it takes.
+	if a-goal( have(Product) ) then make(Product).
 }
-

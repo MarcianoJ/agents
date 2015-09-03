@@ -1,4 +1,3 @@
-
 define coffeemaker as agent {
 	use coffeemaker as main module.
 	use init as init module.

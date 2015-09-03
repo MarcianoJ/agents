@@ -10,10 +10,8 @@ use "ElevatorSim-1.3.0.jar" as environment with
 define elevator as agent {
 	use elevator as main module.
 	use elevatorEvents as event module.
-	use elevatorInit as init module.
 } 
 
 launchpolicy{
 	when type=car launch elevator. % with max=3.
 }
-

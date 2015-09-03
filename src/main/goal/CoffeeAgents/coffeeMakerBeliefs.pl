@@ -1,2 +1,2 @@
-have(water). 
+have(water).
 have(beans).

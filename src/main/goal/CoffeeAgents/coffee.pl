@@ -1,5 +1,4 @@
 %%%%% Common knowledge of ingredients that are needed for making a coffee product. %%%%%
-
 :- dynamic(have/1).
 :- dynamic(canProvide/2).
 
@@ -12,7 +11,6 @@ canMake(grinder, [grounds]).
 canMake(maker, [coffee, espresso]).
 
 %%%%% General knowledge about providing products. %%%%%
-
 % A Product is a raw product if there are no other products required for making it.
 rawProduct(Product) :- not(requiredFor(Product, _)).
 

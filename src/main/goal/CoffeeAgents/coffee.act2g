@@ -4,4 +4,3 @@ use coffee as knowledge.
 define make(Product) as internal with 
 	pre { me(Me), canMakeIt(Me, Product), forall(requiredFor(Product, Ingredient), have(Ingredient)) }
 	post { have(Product) }
-        

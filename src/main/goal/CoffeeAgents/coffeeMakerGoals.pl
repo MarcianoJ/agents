@@ -1,1 +1,1 @@
-have(coffee). 
+have(coffee).

@@ -1,7 +1,8 @@
 use carriage as knowledge.
 use carriage as actionspec.
+order = random.
 
-module Carriage [order=random] {
-		if true then push.
-		if true then wait.
+module Carriage {
+	if true then push.
+	if true then wait.
 }

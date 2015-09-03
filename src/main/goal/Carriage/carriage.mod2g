@@ -1,4 +1,5 @@
 use carriage as actionspec.
+use carriage as knowledge.
 order = random.
 
 module carriage {

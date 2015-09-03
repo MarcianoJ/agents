@@ -4,6 +4,10 @@ use coffee as knowledge.
 module eventC {
 	%%%%% Process received messages %%%%%
 	
+		% Ask all other machines what they can provide. 
+	% we insert haveProviderInfo right after sending because reply is not obligatory.
+	if bel(not(haveProviderInfo)) then allother.send?(canProvide(_,_) ) + insert(haveProviderInfo).
+	
 	% Believe what other machines say they can make (if multiple answers are provided we store all of them).
 	forall (Sender).sent(canProvide(Sender, Products)) do insert( canProvide(Sender, Products) ) .
 	% Believe what other machines say they have and can provide (telling and providing is taken to be the same here).
@@ -21,9 +25,7 @@ module eventC {
 
 	%%%%% Send messages to other machines %%%%%
 	
-	% Ask all other machines what they can provide. 
-	% we insert haveProviderInfo right after sending because reply is not obligatory.
-	if goal(haveProviderInfo) then allother.send?(canProvide(_,_) ) + insert(haveProviderInfo).
+
 	% Answer questions about what we can make.
 	forall (Sender).sent?(canProvide(_,_)), bel(me(Me), canProvide(Me, Products) )
 		do (Sender).send(canProvide(Me, Products) ) .
@@ -33,15 +35,16 @@ module eventC {
 	% If we want to have a product we cannot make ourselves, then ask for it.
 	forall goal( have(Product) ) do {
 		% If it's a raw product and we know a machine that can provide it, ask that machine.
-		if bel( rawProduct(Product), canProvideIt(Machine, Product) ) then (Machine).sendonce( !have(Product) ) .
+		if bel( rawProduct(Product), canProvideIt(Machine, Product) ) then (Machine).send!(have(Product) ) .
 		% Also ask for help of another machine that can provide an ingredient that we cannot provide ourselves.
 		if bel( requiredFor(Product, Ingredient), me(Me), not(canProvideIt(Me, Ingredient)),
 				canProvideIt(Machine, Ingredient) )
-			then (Machine).sendonce( !have(Ingredient)) .
+			then (Machine).send!(have(Ingredient)) .
 	}
 		
-	% Delete all indicative messages we received from the mail box (we've already used these to update our beliefs).
-	% Because questions and requests cannot always be handled immediately, as we may need time to collect information
+	% Questions and requests cannot always be handled immediately, as we may need time to collect information
 	% to answer questions and to process requests, we do not delete these types of messages.
-	forall sent:(Sender, Message) do delete( received(Sender, Message) ) .
+	% FIXME
+	
+
 }

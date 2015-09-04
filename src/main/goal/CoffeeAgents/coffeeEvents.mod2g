@@ -1,7 +1,7 @@
 %%%%% Event module shared by agents that are part of the coffee.mas2g multi-agent system. %%%%%
 use coffee as knowledge.
 
-module eventC {
+module coffeeEvents {
 	%%%%% Process received messages %%%%%
 	
 		% Ask all other machines what they can provide. 

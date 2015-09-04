@@ -1,17 +1,15 @@
-define coffeemaker as agent {
+define maker as agent {
 	use coffeemaker as main module.
-	use initC as init module.
-	use eventC as event module.
+	use coffeeEvents as event module.
 } 
 
-define coffeegrinder as agent {
+define grinder as agent {
 	use coffeegrinder as main module.
-	use initC as init module.
-	use eventC as event module.
+	use coffeeEvents as event module.
 } 
 
 launchpolicy {
-	when type=maker launch coffeemaker.
-	when type=grinder launch coffeegrinder.
+	launch maker.
+	launch grinder.
 }
  

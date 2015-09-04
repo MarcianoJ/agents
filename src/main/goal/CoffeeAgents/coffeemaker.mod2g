@@ -9,13 +9,11 @@ use coffee as knowledge.
 use coffee as actionspec.
 use coffeeMakerBeliefs as beliefs.
 use coffeeMakerGoals as goals.
-use eventC.
 exit = nogoals.
 order = linearall.
 
 module coffeemaker {
-	if true then eventC. % force always evaluate events module.
 	% If we want to have a Product, then make it.
 	% Note that the action's precondition checks if we have what it takes.
-	if a-goal( have(Product) ) then make(Product).
+	if a-goal( have(Product) ) then make(Product).\
 }

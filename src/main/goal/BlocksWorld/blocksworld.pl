@@ -2,6 +2,7 @@
 :- dynamic(clear/0).
 :- dynamic(clear/1).
 :- dynamic(target/2).
+:- dynamic(allClear/0).
 
 % only blocks can be on top of another object.
 block(X) :- on(X, _).

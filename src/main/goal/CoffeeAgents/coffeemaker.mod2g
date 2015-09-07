@@ -15,5 +15,5 @@ order = linearall.
 module coffeemaker {
 	% If we want to have a Product, then make it.
 	% Note that the action's precondition checks if we have what it takes.
-	if a-goal( have(Product) ) then make(Product).\
+	if a-goal( have(Product) ) then make(Product).
 }

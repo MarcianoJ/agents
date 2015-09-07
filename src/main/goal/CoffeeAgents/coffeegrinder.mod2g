@@ -6,11 +6,11 @@
 % machines need if it has what is requested for, or, alternatively, adopt a goal to make
 % what is requested.
 use coffee as knowledge.
-use coffee as actionspec.\
+use coffee as actionspec.
 order = linearall.
 
 module coffeegrinder {
 	% If we want to have a Product, then make it.
 	% Note that the action's precondition checks if we have what it takes.
-	if a-goal( have(Product) ) then make(Product).\
+	if a-goal( have(Product) ) then make(Product).
 }

@@ -1,5 +1,4 @@
 :- dynamic(on/2).
-:- dynamic(clear/0).
 :- dynamic(clear/1).
 :- dynamic(target/2).
 

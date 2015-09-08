@@ -2,6 +2,7 @@
 :-dynamic(on/2).
 :-dynamic(block/1).
 :-dynamic(target/2).
+:-dynamic(maintain/0).
 
 % Assume there is enough room to put all blocks on the table.
 % This is actually only true for up to 13 blocks in the Tower Environment.

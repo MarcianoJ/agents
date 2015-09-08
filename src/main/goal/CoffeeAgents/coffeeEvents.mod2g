@@ -26,9 +26,14 @@ module coffeeEvents {
 	%%%%% Send messages to other machines %%%%%
 	
 
+	% Remember questions about what we can make
+	forall (Sender1).sent?(canProvide(Sender,Product)), bel(me(Me), canProvide(Me, Products) ) 
+		do adopt(informed(Sender,Product)).
+	
 	% Answer questions about what we can make.
-	forall (Sender).sent?(canProvide(_,_)), bel(me(Me), canProvide(Me, Products) )
-		do (Sender).send(canProvide(Me, Products) ) .
+	forall a-goal(informed(Sender,Product)), bel(me(Me), canProvide(Me, Product) )
+		do (Sender).send(canProvide(Me, Product) ) + insert(informed(Sender,Product)).
+		
 	% If a machine told us it needs an ingredient and we have it, tell it so
 	forall (Sender).sent?(have(Ingredient)), bel( have(Ingredient) ) 
 		do (Sender).send(have(Ingredient)).

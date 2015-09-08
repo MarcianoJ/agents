@@ -2,6 +2,7 @@
 :- dynamic(have/1).
 :- dynamic(canProvide/2).
 :- dynamic(haveProviderInfo/0).
+:- dynamic(informed/2). %informed(Machine, product)
 
 requiredFor(coffee, water).
 requiredFor(coffee, grounds).
@@ -26,6 +27,4 @@ canMakeIt(Machine, Product) :- canMake(Machine, Products), member(Product, Produ
 
 %%%%% Definition of indicative message; used for selecting messages that will be deleted from the mail box. %%%%%
 
-% A message is indicative if it is not interrogative nor imperative
-% as it must be one of these three types. 
-indicative(Message) :- not(Message = imp(_)), not(Message = int(_)).
+

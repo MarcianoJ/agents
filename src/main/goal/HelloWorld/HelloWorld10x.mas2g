@@ -1,9 +1,11 @@
-agentfiles{
+define helloWorldAgent as agent {
    % Simple Hello World agent that prints "Hello world" message 10 times.
-   "helloWorldAgent10x.goal" .
+	use helloWorldAgent10x as main module.
+	use helloWorldAgent10xEvents as event module.
 }
 
 launchpolicy{
-   launch helloWorldAgent : helloWorldAgent10x .
+   launch helloWorldAgent.
 }
+
 

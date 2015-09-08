@@ -1,0 +1,10 @@
+use helloWorldAgent10xKnowledge as knowledge.
+use helloWorldAgent10xBeliefs as beliefs.
+use helloWorldAgent10xGoals as goals.
+exit = nogoals.
+
+module main {
+      if goal( nrOfPrintedLines(10) ) then print("Hello, world!").
+}
+
+

@@ -1,0 +1,2 @@
+nrOfPrintedLines(0).
+

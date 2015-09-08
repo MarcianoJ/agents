@@ -15,7 +15,7 @@ canProduce(maker,expresso).
 % shortcut for what this machine can produce.
 canProduce(Product) :- me(Me), canProduce(Me, Product).
 
-% A Machine can make a Product if has or can make the product now.
+% A Machine can make a Product if it has the product in stock or can make all ingredients.
 canMake(Product) :- have(Product).
 canMake(Product) :- canProduce(Product), forall(requiredFor(Product, Ingredient), canMake(Ingredient)).
 	

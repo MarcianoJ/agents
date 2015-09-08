@@ -1,0 +1,8 @@
+use TTTknowledge as knowledge.
+
+% Pre-condition: A position on the board can be occupied if it is free and it's my turn.
+% Effect: The position on the board is occupied by me.
+% Post-condition: true because the effect is fully observable.
+define occupy(Pos) with
+	pre{ free(Pos), me(Player), turn(Player) }
+	post{ true }

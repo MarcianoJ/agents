@@ -1,0 +1,25 @@
+use TTTknowledge as knowledge.
+use actions as actionspec.
+
+
+module main {
+		% if game has ended, exit.
+		if bel( draw; winner(_) ) then exit-module.
+		
+        % if I can make a winning move, do it.
+        if bel( me(Player), winning_move(Player, Pos) ) then occupy(Pos).
+        % if my opponent can make a winning move, block that move.
+        if bel( opponent(Opponent), winning_move(Opponent, Pos) ) then occupy(Pos).
+        % If I can make a move that will set up a fork for myself, do it.
+		% if bel( me(Player), fork(Player, Pos) ) then occupy(Pos).
+        % If I can make a move that will set up a winning combination for myself, do it.
+        % But ensure that this move does not force the opponent into establishing a fork.
+		% if bel( me(Player), possible_winning_move(Player, Line, Pos), free(Line, Pos2), not(Pos=Pos2),
+		%	opponent(Opponent), not(fork(Opponent, Pos2)) ) then occupy(Pos).
+        % if either the center or a corner is still free, occupy one of these squares.
+        if bel( center(Pos) ) then occupy(Pos).
+        if bel( corner(Pos) ) then occupy(Pos).
+        % otherwise, occupy a random free square.
+        if true then occupy(Pos).
+}
+

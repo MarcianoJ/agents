@@ -1,8 +1,8 @@
 use blocksworld as knowledge.
 use tower as goals.
+use builderBeliefs as beliefs.
 use build.
 use clear.
-exit = nogoals.
 
 module stackBuilder {
 	if goal(tower(T)), bel(not(tower(T))), bel(available(T)) then build(T).

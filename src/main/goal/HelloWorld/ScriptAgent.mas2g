@@ -3,16 +3,16 @@
 % environment returns information via percepts about the last text printed and the number
 % of times the printText action has been performed.
 
-environment{
-	env = "HelloWorldEnvironment-1.1.0.jar".
-}
+use "HelloWorldEnvironment-1.1.0.jar" as environment.
 
-agentfiles{
-	% Simple Hello World Agent that prints 'Hello world' message. 
-	"ScriptAgent.goal" .
+define scriptAgent as agent {
+	use ScriptAgent as main module.
+	use ScriptInit as init module.
+	use ScriptEvent as event module.
 }
 
 launchpolicy{
-	when entity@env do launch scriptAgent : ScriptAgent.
+   when * launch scriptAgent.
 }
+
 

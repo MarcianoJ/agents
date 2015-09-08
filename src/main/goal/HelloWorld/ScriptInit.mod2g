@@ -1,0 +1,7 @@
+use ScriptKnowledge as knowledge.
+use ScriptBeliefs as beliefs.
+
+module init {
+		if bel( findall(LineNr, script(LineNr, _), Lines), max_list(Lines, Max) )
+			then adopt( nrOfPrintedLines(Max) ) .
+}

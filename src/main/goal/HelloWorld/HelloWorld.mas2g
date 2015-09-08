@@ -1,8 +1,8 @@
-agentfiles{
-   "helloWorldAgent.goal" .
+define helloWorldAgent as agent {
+	use helloWorldAgent as main module.
 }
 
 launchpolicy{
-   launch helloWorldAgent : helloWorldAgent .
+   launch helloWorldAgent .
 }
 

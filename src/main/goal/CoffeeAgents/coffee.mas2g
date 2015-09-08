@@ -1,10 +1,11 @@
 define maker as agent {
-	use coffeemaker as main module.
+	use machine as main module.
+	use coffeeMakerInit as init module.
 	use coffeeEvents as event module.
 } 
 
 define grinder as agent {
-	use coffeegrinder as main module.
+	use machine as main module.
 	use coffeeEvents as event module.
 } 
 

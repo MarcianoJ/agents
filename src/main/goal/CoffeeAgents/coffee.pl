@@ -1,30 +1,21 @@
 %%%%% Common knowledge of ingredients that are needed for making a coffee product. %%%%%
-:- dynamic(have/1).
-:- dynamic(canProvide/2).
-:- dynamic(haveProviderInfo/0).
-:- dynamic(informed/2). %informed(Machine, product)
+:- dynamic(have/1). % indicates we have a product ready for use
+:- dynamic(delivered/2). % delivered(Machine, product) indicates a product delivered to machine. 
 
 requiredFor(coffee, water).
 requiredFor(coffee, grounds).
 requiredFor(espresso, coffee). 
 requiredFor(grounds, beans).
 
-canMake(grinder, [grounds]).
-canMake(maker, [coffee, espresso]).
+% canProduce indicates what a machine can make (if it has the requiredFor).
+canProduce(grinder,grounds).
+canProduce(maker,coffee).
+canProduce(maker,expresso).
 
-%%%%% General knowledge about providing products. %%%%%
-% A Product is a raw product if there are no other products required for making it.
-rawProduct(Product) :- not(requiredFor(Product, _)).
+% shortcut for what this machine can produce.
+canProduce(Product) :- me(Me), canProduce(Me, Product).
 
-% A Machine can provide a Product if it is on the list of Products it can make or it has the Product.
-% We sort the list to make sure a unique list is produced each time.
-canProvide(Machine, Products) :- canMake(Machine, ProductList1),
-		findall(Product, have(Product), ProductList2), union(ProductList1, ProductList2, ProductList), sort(ProductList, Products).
-% A Machine can provide a Product if it is on the list of Products it can provide.
-canProvideIt(Machine, Product) :- canProvide(Machine, Products), member(Product, Products).
-% A Machine can make a Product itself if it is on the list of Products is can make.
-canMakeIt(Machine, Product) :- canMake(Machine, Products), member(Product, Products).
-
-%%%%% Definition of indicative message; used for selecting messages that will be deleted from the mail box. %%%%%
-
-
+% A Machine can make a Product if has or can make the product now.
+canMake(Product) :- have(Product).
+canMake(Product) :- canProduce(Product), forall(requiredFor(Product, Ingredient), canMake(Ingredient)).
+	

@@ -1,5 +1,7 @@
 :- dynamic(pos/2). % pos(Position, content) contains the board contents. 
 :- dynamic(turn/1). % name of the player who has the turn.
+:- dynamic(draw/0). % set when the game ended in a draw
+:- dynamic(winner/1). % set when we have a winner.
 
 % pos/1: pos(Pos) is true if Pos is in the range 1 to 9 where these numbers
 % denote the corresponding square in Table \ref{table:nrtictactoe}.
@@ -35,4 +37,6 @@ count([A|T], A, C) :- count(T, A, TC), C is TC+1.
 count([B|T], A, C) :- not(A=B), count(T, A, C).
 % my opponent is the player that I am not
 % (i.e. if I am playing O's, then my opponent is playing X's, and vice versa.)
-opponent(Opponent) :- agent(Opponent), not(me(Opponent)).
+opponent(x) :- me(o).
+opponent(o) :- me(x).
+

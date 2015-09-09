@@ -1,4 +1,5 @@
 use TTTknowledge as knowledge.
+use actions as actionspec.
 
 module init {
 	% set a goal to win.

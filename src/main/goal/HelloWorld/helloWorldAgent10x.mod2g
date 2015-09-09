@@ -4,7 +4,8 @@ use helloWorldAgent10xGoals as goals.
 exit = nogoals.
 
 module main {
-      if goal( nrOfPrintedLines(10) ) then print("Hello, world!").
+      if goal( nrOfPrintedLines(N) ), bel(nrOfPrintedLines(Cnt), Cnt<N, Cnt1 is Cnt+1) then 
+	  	print("Hello, world!") + delete(nrOfPrintedLines(Cnt)) + insert(nrOfPrintedLines(Cnt1)).
 }
 
 

@@ -1,6 +1,0 @@
-use helloWorldAgent10xKnowledge as knowledge.
-
-module event {
-      if bel( nrOfPrintedLines(Count), NewCount is Count + 1 )
-      then delete( nrOfPrintedLines(Count) ) + insert( nrOfPrintedLines(NewCount) ).
-}

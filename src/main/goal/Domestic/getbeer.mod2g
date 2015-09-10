@@ -1,0 +1,16 @@
+use robot as knowledge.
+use robot as actionspec.
+exit=noaction.
+
+% Get a beer from the fridge.
+
+module getbeer {
+	if bel( not(at(fridge)) ) then move_towards(fridge).
+	% we reached fridge.
+	if bel( fridgeclosed ) then open(fridge).
+	% fridge is open
+	if bel( not(holdingbeer) ) then get(beer).
+	% got the beer.
+	if bel( not(fridgeclosed) ) then close(fridge).
+	% done.
+}

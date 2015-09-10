@@ -1,0 +1,17 @@
+use robot as knowledge.
+use robot as actionspec.
+use robotBeliefs as beliefs.
+use getbeer.
+use servebeer.
+
+order=random.
+
+module main {
+		% always prepare to serve beer.
+		if bel( not(holdingbeer) ) then adopt( holdingbeer ).		
+		
+		if a-goal( holdingbeer ) then getbeer.
+		if bel( holdingbeer ) then servebeer.
+}
+
+

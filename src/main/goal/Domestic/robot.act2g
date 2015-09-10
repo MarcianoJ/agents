@@ -1,0 +1,27 @@
+use robot as knowledge.
+	
+% Opens the fridge if robot is at fridge and not holding a beer.
+define open(F) with
+	pre { F==fridge, not(holdingbeer), at(fridge), fridgeclosed }
+	post { not(fridgeclosed) }
+
+% Grabs a beer from fridge if robot is not holding a beer already
+% and the fridge is open.
+define get(B) with
+	pre { B==beer, not(holdingbeer), at(fridge), not(fridgeclosed) }
+	post { holdingbeer }
+
+% Closes the fridge. MUST HOLD BEER!?!?
+define close(F) with
+	pre { F==fridge, holdingbeer, at(fridge), not(fridgeclosed) }
+	post { fridgeclosed }
+
+% Hands over beer to owner if robot is holding beer and close to (at) owner.
+define hand_in(B) with
+	pre { B==beer, holdingbeer, at(owner) }
+	post { not(holdingbeer) }
+
+% Moves towards a place. FRIDGE MUST BE CLOSED!?!?
+define move_towards(Place) with
+   pre{ fridgeclosed }
+   post{ true }

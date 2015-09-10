@@ -1,0 +1,7 @@
+use supermarket as knowledge.
+
+% not(on(X,Y)) in precondition to prevent moving a block on the table to another place on the table.
+define deliver(B, N) with
+   pre{ B=beer  }
+   post{ true }
+	

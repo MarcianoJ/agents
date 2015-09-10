@@ -1,0 +1,19 @@
+use robot as knowledge.
+
+
+module events {
+	% Update at percept.
+	forall bel( at(X) ) do insert( not(at(X)) ).
+	forall percept( at(robot,X) )  do insert( at(X) ).
+	
+	% Update stock percept. Only update when we receive an update,
+	% so this always stores the last percept.
+	% Because we're the only one accessing the fridge, this should
+	% match the actual stock.
+	if bel( beerstock(OldN)), percept(stock(beer(N))) 
+		then insert( not(beerstock(OldN)), beerstock(N) ).
+	
+	% Update ownerhasbeer. Assumes full observability.
+	if bel( ownerhasbeer ) then delete( ownerhasbeer ).
+	if percept(has(owner,beer))  then insert( ownerhasbeer ).
+}

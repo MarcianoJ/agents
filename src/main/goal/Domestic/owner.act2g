@@ -1,0 +1,5 @@
+use owner as knowledge.
+
+define sip(B) with
+   pre{ B==beer, haveBeer }
+   post{ sippingbeer }

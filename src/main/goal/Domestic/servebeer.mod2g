@@ -1,0 +1,12 @@
+use robot as knowledge.
+use robot as actionspec.
+
+exit=noaction.
+
+% Serve beer to owner.
+module servebeer{
+	if bel( not(at(owner)) ) then move_towards(owner).
+	% reached the owner
+	if bel( not(ownerhasbeer) ) then hand_in(beer).
+	% done.
+}

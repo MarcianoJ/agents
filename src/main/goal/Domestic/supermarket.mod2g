@@ -1,0 +1,9 @@
+use supermarket as knowledge.
+use supermarket as actionspec.
+
+order  = random.
+
+module main {
+		if bel(true) then deliver(beer, 1).
+}
+

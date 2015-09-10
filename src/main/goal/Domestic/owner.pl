@@ -1,0 +1,1 @@
+:-dynamic(haveBeer/0).

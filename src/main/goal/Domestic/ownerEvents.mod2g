@@ -1,0 +1,6 @@
+use owner as knowledge.
+
+module events {
+		if bel(haveBeer) then delete(haveBeer).
+		if percept(has(owner,beer)) then insert(haveBeer).
+}

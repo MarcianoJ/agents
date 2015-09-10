@@ -1,0 +1,17 @@
+use transport as knowledge.
+use transport as actionspec.
+
+focus = filter.
+exit = nogoals.
+
+% deliver packages for one customer at a time (focusmethod option is just an example; 'select' is the default value)
+module deliverOrder {
+	% only load packages for the current customer, and do not re-load packages just unloaded to the customer
+	if goal(delivered_order(C)), bel(ordered(C, P), loc(C, X)), not(bel(in(P, truck))), not(bel(loc(truck, X))) then load(P).
+	% go to the customer iff the truck is full 
+	if goal(delivered_order(C)), bel(loc(truck, X), loaded_order(C), loc(C, Y)) then goto(Y).
+	% deliver packages when the truck has arrived
+	if goal(delivered_order(C)), bel(loc(truck, X), loc(C, X), in(P, truck), ordered(C, P)) then unload(P).
+	% go back home if the truck is empty
+	if bel(empty, home(Y)) then goto(Y).
+}

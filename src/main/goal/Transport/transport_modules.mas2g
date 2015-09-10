@@ -1,7 +1,8 @@
-agentfiles {
-	"transport_modules.goal" [name=agent].
-}
 
-launchpolicy {
-	launch transporter:agent.
+define transporter as agent {
+	use transport_modules as main module.
+} 
+
+launchpolicy{
+	launch transporter.
 }

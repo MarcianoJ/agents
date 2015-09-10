@@ -1,0 +1,15 @@
+use transport as knowledge.
+use transportBeliefs as beliefs.
+use transportGoals as goals.
+use deliverOrder.
+use transport as actionspec.
+
+exit = nogoals.
+
+module main {
+	% you can always go home
+	if bel(home(X)) then goto(X).
+	
+	if  goal(delivered_order(C)) then deliverOrder.
+}
+

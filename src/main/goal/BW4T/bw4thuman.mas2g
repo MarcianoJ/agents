@@ -1,8 +1,8 @@
-use "bw4t-client-3.8.0-jar-with-dependencies.jar" as environment with 
+use "bw4t-client-3.8.2-SNAPSHOT-jar-with-dependencies.jar" as environment with 
 	clientip ="localhost", clientport="2000", 
 	serverip = "localhost", serverport = "8000", 
 	agentcount = "0", humancount = "3", launchgui = "true", 
-	goal = "true", goalhuman="true" .
+	goal = "true", goalhuman="true", log="ALL" .
 
 define humanbot as agent {
 	use humanbot as main module.

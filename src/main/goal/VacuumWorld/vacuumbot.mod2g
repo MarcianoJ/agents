@@ -1,7 +1,7 @@
 use vacuum as knowledge.
 use vacuum as actionspec.
 
-order=linear.
+order=linearrandom.
 
 module main{
 	% we see dust?

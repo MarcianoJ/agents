@@ -1,4 +1,3 @@
-use helloWorldAgent10xKnowledge as knowledge.
 use helloWorldAgent10xBeliefs as beliefs.
 use helloWorldAgent10xGoals as goals.
 exit = nogoals.

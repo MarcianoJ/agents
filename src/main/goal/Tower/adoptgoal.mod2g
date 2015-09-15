@@ -1,0 +1,22 @@
+use tower as knowledge.
+
+% order=linear: adopt at most one goal to hold a block at any one time.
+% the gripper is limited and cannot hold more than one block.
+
+	% a block X is an obstructing block if it prevents moving a block Y in position
+	% either because there is a block above the target block,
+	% or because a block above Y prevents moving it.
+define obstructingBlock(X) as a-goal( on(Y, Z) ), bel( above(X, Z); above(X, Y) ).
+
+define constructiveMove(X, Y) as 
+	a-goal( tower([X, Y | T]) ), bel( tower([Y | T]), clear(Y), (clear(X) ; holding(X)) ) .
+
+	
+	
+module adoptgoal {
+	
+	% prefer making constructive moves.
+	if constructiveMove(X, Y) then adopt( holding(X) ).
+	% if no constructive move can be made aim for moving obstructing block.
+	if obstructingBlock(X) then adopt( holding(X) ).
+}

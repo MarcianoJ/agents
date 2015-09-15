@@ -1,12 +1,11 @@
-environment{
-	env = "tower-1.2.0.jar" .
+use "tower-1.2.0.jar" as environment.
+
+define towerbuilder as agent {
+	use towerbuilder2 as main module.
+	use tower2Events as event module.
 }
 
-agentfiles{
-	"towerbuilder2.goal" [name = builder] .
-}
-
-launchpolicy{
-	when entity@env do launch towerBuilder : builder .
+launchpolicy {
+    when * launch towerbuilder.
 }
 

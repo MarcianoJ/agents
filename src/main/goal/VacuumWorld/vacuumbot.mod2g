@@ -1,0 +1,19 @@
+use vacuum as knowledge.
+use vacuum as actionspec.
+
+order=linear.
+
+module main{
+	% we see dust?
+	if bel(square(here,dust)) then clean.
+	if bel(square(left,dust)) then move(left).
+	if bel(square(right,dust)) then move(right).
+	% for the cases forwardLeft, forwardRight and forward we try go forward.
+	% this may fail if dust is eg forwardLeft and obstacle forward.
+	if bel(square(X,dust)) then move(forward). 
+
+	% no solution. Keep moving at random 
+	if bel(possiblemove(X)) then move(X).
+}
+
+

@@ -1,0 +1,6 @@
+use vacuum as knowledge.
+
+module events {
+	forall bel(square(Name,Contents)) do delete(square(Name,Contents)).
+	forall percept(square(Name, Contents)) do insert(square(Name,Contents)).
+}

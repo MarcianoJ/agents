@@ -1,5 +1,5 @@
 environment {
- env = "ElevatorSim-1.3.0.jar".
+ env = "ElevatorSim-1.3.2.jar".
  init = [
 	Simulation = "Random Rider Insertion", 
 	Floors = 10, Cars = 3,

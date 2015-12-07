@@ -4,6 +4,8 @@ use builderBeliefs as beliefs.
 use build.
 use clear.
 
+exit=nogoals.
+
 module stackBuilder {
 	if goal(tower(T)), bel(not(tower(T))), bel(available(T)) then build(T).
 	if bel(not(clear)) then clear + insert(clear).	

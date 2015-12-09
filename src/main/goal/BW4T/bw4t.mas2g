@@ -12,7 +12,5 @@ define robot as agent {
 } 
 
 launchpolicy{
-	when * launch robot. % with max=3.
+	when * launch robot.
 }
-
-

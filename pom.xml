@@ -133,7 +133,7 @@
 								<artifactItem>
 									<groupId>eishub.bw4t</groupId>
 									<artifactId>bw4t-client</artifactId>
-									<version>3.8.0</version>
+									<version>3.8.2</version>
 									<classifier>jar-with-dependencies</classifier>
 									<type>jar</type>
 									<overWrite>false</overWrite>

@@ -4,6 +4,7 @@ use tarzanGoals as goals.
 use meetingBeliefs as beliefs.
 
 order=random.
+exit=nogoals.
 
 define not_yet_invited(Person, Date, Time, Duration, Attendees) as
 	goal(meeting(Date, Time, Duration, Attendees)), bel(member(Person, Attendees), me(Me), not(Person = Me)),

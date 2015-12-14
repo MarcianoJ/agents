@@ -23,7 +23,10 @@ module main  {
 	
 	% create a meeting appointment in the calendar
 	if non_conflicting_meeting_invitation(Inviter, Date, Time, Dur, Att)
-		then createMeeting(Date, Time, Dur, Att) + delete(receivedInvitation(Inviter, meeting(Date, Time, Dur, Att))) + (Inviter).send(accept(Date, Time, Dur, Att)).
+		then createMeeting(Date, Time, Dur, Att) 
+		+ delete(receivedInvitation(Inviter, meeting(Date, Time, Dur, Att))) 
+		+ (Inviter).send(accept(Date, Time, Dur, Att)) 
+		+ exit-module.
 	
 	if meeting_invitation_accepted_by_all(Date, Time, Dur, Att)
 		then createMeeting(Date, Time, Dur, Att).

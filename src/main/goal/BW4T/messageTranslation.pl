@@ -1,3 +1,5 @@
+% translate BW4T messages.
+% Sender IDs and IDs in message contents are all BW4T IDs. Do not use GOAL agent names.
 
 % joining strings.
 strjoin([Str],Str).

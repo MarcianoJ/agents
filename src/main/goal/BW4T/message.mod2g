@@ -5,20 +5,27 @@ use human as actionspec.
 exit=always.
 
 module message {
+	% the associate(Agt,Id) message connects GOAL Agent names with BW4T agent IDs.
+	forall (_).sent(associate(Agt, Id)) do insert(associate(Agt,Id)).
+	
 	% we still need to translate these messages.
-	forall (Agt).sent(msg(Mess)), bel(translate(Agt,Mess,Transl), strjoin([Agt, ' says'],WhoSays)) 
+	forall (Agt).sent(msg(Mess)), 
+		bel(associate(Agt, SenderId), translate(SenderId,Mess,Transl), strjoin([SenderId, ' says'],WhoSays)) 
 	do sendToGUI(WhoSays,Transl).
 
 	% handle user's request to send message.
 	% 'all' and 'allother' can't be in a variable anymore. Treat separately. 
 	
-	forall percept(sendMessage(all,Mess)), bel(me(Me), translate(Me,Mess,Transl))
+	forall percept(sendMessage(all,Mess)), bel(ownId(Me), translate(Me,Mess,Transl))
 	do all.send(msg(Mess)) + sendToGUI('I say',Transl).
 	
-	forall percept(sendMessage(allother,Mess)), bel(me(Me), translate(Me,Mess,Transl))
+	forall percept(sendMessage(allother,Mess)), bel(ownId(Me), translate(Me,Mess,Transl))
 	do allother.send(msg(Mess)) + sendToGUI('I say',Transl).
 	
-	forall percept(sendMessage(Receiver,Mess)), bel(not(Receiver=all), not(Receiver=allother), me(Me), translate(Me,Mess,Transl))
+	% GUI asks to send message to a BW4T-ID.
+	forall percept(sendMessage(ReceiverId,Mess)), 
+		bel(not(ReceiverId=all), not(ReceiverId=allother), ownId(Me), translate(Me,Mess,Transl),
+			associate(Receiver,ReceiverId))
 	do (Receiver).send(msg(Mess)) + sendToGUI('I say',Transl).
  
 }

@@ -6,7 +6,7 @@ use "bw4t-client-3.8.3-SNAPSHOT-jar-with-dependencies.jar" as environment with
 
 define humanbot as agent {
 	use humanbot as main module.
-	use robotInit as init module.
+	use humanInit as init module.
 	use humanEvents as event module.
 } 
 

@@ -13,6 +13,7 @@
 	</formats>
 	<fileSets>
 		<fileSet>
+			<outputDirectory>agents</outputDirectory>
 			<directory>${project.build.directory}/agents/</directory>
 			<includes>
 				<include>**</include>

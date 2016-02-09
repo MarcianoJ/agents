@@ -7,7 +7,7 @@
 		<dest>${project.build.directory}/agents/</dest>
 	</properties>
 
-	<version>1.1.0-SNAPSHOT</version>
+	<version>1.2.0-SNAPSHOT</version>
 	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
 	<name>goal agents</name>
@@ -131,7 +131,7 @@
 								<artifactItem>
 									<groupId>eishub.bw4t</groupId>
 									<artifactId>bw4t-client</artifactId>
-									<version>3.8.3-SNAPSHOT</version>
+									<version>3.8.3</version>
 									<type>jar</type>
 									<classifier>jar-with-dependencies</classifier>
 									<overWrite>false</overWrite>
@@ -228,7 +228,7 @@
 								<artifactItem>
 									<groupId>eishub.bw4t</groupId>
 									<artifactId>doc</artifactId>
-									<version>1.0.0-SNAPSHOT</version>
+									<version>1.0.1</version>
 									<type>jar</type>
 									<outputDirectory>${dest}BW4T/</outputDirectory>
 									<overWrite>false</overWrite>

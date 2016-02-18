@@ -3,7 +3,6 @@ use prolog as knowledge.
 use helloWorldAgent10x.
 
 test main with
-	pre { bel(nrOfPrintedLines(0)) }
 	post { bel(nrOfPrintedLines(10)) }
 	
 helloWorldAgent {

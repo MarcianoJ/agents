@@ -1,6 +1,6 @@
 use bw4t.
 use robot as knowledge.
-use robot.
+use robot as module.
 timeout = 300.
 
 test main with

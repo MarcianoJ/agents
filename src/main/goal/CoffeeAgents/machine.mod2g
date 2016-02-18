@@ -1,9 +1,7 @@
 % General machine, can be either coffeemaker or coffeegrinder.
 % This machine tries to make and deliver products according to its goals and incoming requests.
-
 use coffee as knowledge.
 use coffee as actionspec.
-
 exit = never. % can't exit, more requests may come later.
 order = linear.
 

@@ -1,4 +1,5 @@
 %%%%% Common knowledge of ingredients that are needed for making a coffee product. %%%%%
+:- dynamic(me/1). % indicates who we are
 :- dynamic(have/1). % indicates we have a product ready for use
 :- dynamic(delivered/2). % delivered(Machine, product) indicates a product delivered to machine. 
 

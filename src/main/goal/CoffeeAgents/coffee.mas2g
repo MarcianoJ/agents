@@ -5,7 +5,8 @@ define maker as agent {
 } 
 
 define grinder as agent {
-	use machine as main module.
+	use machine as main module..
+	use grinderInit as init module.
 	use coffeeEvents as event module.
 } 
 
@@ -13,4 +14,3 @@ launchpolicy {
 	launch maker.
 	launch grinder.
 }
- 

@@ -4,6 +4,6 @@ use actions as actionspec.
 module init {
 	% set a goal to win.
 	if true then insert(me(o)) + adopt(winner(o)).
-	% if I am X player, then make a first random move.
-	if true then occupy(Pos) + insert(turn(unknown)).
+	% check who's turn it is first
+	if percept(turn(X)) then insert(turn(X)).
 }

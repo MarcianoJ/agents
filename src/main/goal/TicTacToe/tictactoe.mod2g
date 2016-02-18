@@ -19,5 +19,5 @@ module main {
     if bel( center(Pos) ) then occupy(Pos).
     if bel( corner(Pos) ) then occupy(Pos).
     % otherwise, occupy a random free square.
-    if true then occupy(Pos).
+    if bel( free(Pos) ) then occupy(Pos).
 }

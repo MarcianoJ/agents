@@ -6,7 +6,7 @@ exit=always.
 
 module message {
 	% the associate(Agt,Id) message connects GOAL Agent names with BW4T agent IDs.
-	forall (_).sent(associate(Agt, Id)) do insert(associate(Agt,Id)).
+	forall (Agt).sent(associate(Id)) do insert(associate(Agt,Id)).
 	
 	% we still need to translate these messages.
 	forall (Agt).sent(msg(Mess)), 

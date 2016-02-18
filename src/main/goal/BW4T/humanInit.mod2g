@@ -13,7 +13,8 @@ module humanInit {
 	forall bel( room(Place) ) do adopt( in(Place) ).
 
 	% the robot's own ID. Send it to all others so that we can properly handle message destination IDs.
-	if percept(ownName(Id)), bel(me(Me)) then insert(ownId(Id)) + allother.send(associate(Me, Id)) + insert(associate(Me,Id)).
+	% we send it to *all* including ourselves, so that we can learn our own name (...)
+	if percept(ownName(Id)) then insert(ownId(Id)) + all.send(associate(Id)).
 
 	% Exercise 2.1a: insert rules for processing percepts that are sent only at the beginning of a session, 
 	%  and/or need to be initialized.

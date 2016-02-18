@@ -6,14 +6,14 @@ use meetingBeliefs as beliefs.
 order=random.
 
 define not_yet_invited(Person, Date, Time, Duration, Attendees) as
-	goal(meeting(Date, Time, Duration, Attendees)), bel(member(Person, Attendees), me(Me), not(Person = Me)),
+	goal(meeting(Date, Time, Duration, Attendees)), bel(member(Person, Attendees), not(Person = jane)),
 	not(bel(sentInvitation(Person,meeting(Date, Time, Duration, Attendees)))).
 
 define non_conflicting_meeting_invitation(Inviter, Date, Time, Duration, Attendees) as
 	bel(receivedInvitation(Inviter,meeting(Date, Time, Duration, Attendees)), not(meeting_conflict(Date, Time, Duration, Attendees))).
 
 define meeting_invitation_accepted_by_all(Date, Time, Duration, Attendees) as
-	goal(meeting(Date, Time, Duration, Attendees)), bel(me(Me), del(Attendees, Me, Others), forall(member(X, Others), receivedAccept(X, meeting(Date, Time, Duration, Attendees)))).
+	goal(meeting(Date, Time, Duration, Attendees)), bel(del(Attendees, jane, Others), forall(member(X, Others), receivedAccept(X, meeting(Date, Time, Duration, Attendees)))).
 
 	
 module main  {

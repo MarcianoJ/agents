@@ -1,21 +1,18 @@
-use "Tic-Tac-Toe-1.2.0.jar" as environment with xplayer = "agent",  oplayer = "agent".
-
+use "Tic-Tac-Toe-1.2.0.jar" as environment with xplayer = "agent", oplayer = "agent".
 
 define x as agent {
 	use tictactoe as main module.
 	use events as event module.
-	use TTTinit as init module.
+	use TTTinitX as init module.
 }
 
-% duplicate... apparently we don't support launchrules like launch agent:x anymore.
 define o as agent {
 	use tictactoe as main module.
 	use events as event module.
-	use TTTinit as init module.
+	use TTTinitO as init module.
 }
 
 launchpolicy {
     when name=xplayer launch x.
     when name=oplayer launch o.
 }
-

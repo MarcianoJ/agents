@@ -1,7 +1,8 @@
-:- dynamic(pos/2). % pos(Position, content) contains the board contents. 
-:- dynamic(turn/1). % name of the player who has the turn.
-:- dynamic(draw/0). % set when the game ended in a draw
-:- dynamic(winner/1). % set when we have a winner.
+:-dynamic pos/2, % pos(Position, content) contains the board contents. 
+		turn/1, % name of the player who has the turn.
+		draw/0, % set when the game ended in a draw
+		me/1, % identify ourselves
+		winner/1. % set when we have a winner.
 
 % pos/1: pos(Pos) is true if Pos is in the range 1 to 9 where these numbers
 % denote the corresponding square in Table \ref{table:nrtictactoe}.
@@ -9,7 +10,6 @@ pos(Pos) :- between(1, 9, Pos).
 
 free(Pos) :- pos(Pos, empty).
 free(List, Pos) :- member(Pos, List), pos(Pos,empty).
-
 
 % definitions for 'corner', 'center', 'edge', and 'line'.
 % A line is a diagonal, row, or column.
@@ -39,4 +39,3 @@ count([B|T], A, C) :- not(A=B), count(T, A, C).
 % (i.e. if I am playing O's, then my opponent is playing X's, and vice versa.)
 opponent(x) :- me(o).
 opponent(o) :- me(x).
-

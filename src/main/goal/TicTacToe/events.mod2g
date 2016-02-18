@@ -1,16 +1,16 @@
 use TTTknowledge as knowledge.
 
 module events {
-		% pos/2: pos(Pos, Player) means that square Pos is occupied and marked by Player (either 'x' or 'o').
-        % pos(Pos, empty) means square Pos is empty and the square is still free.
-		% pos/2 is fully observable and continuously so.
-		forall bel( pos(Pos, Player)), not(percept(pos(Pos, Player)))  do delete( pos(Pos, Player) ).
-		forall percept(pos(Pos, Player))  do insert( pos(Pos, Player) ).
+	% pos/2: pos(Pos, Player) means that square Pos is occupied and marked by Player (either 'x' or 'o').
+       % pos(Pos, empty) means square Pos is empty and the square is still free.
+	% pos/2 is fully observable and continuously so.
+	forall bel( pos(Pos, Player)), not(percept(pos(Pos, Player)))  do delete( pos(Pos, Player) ).
+	forall percept(pos(Pos, Player))  do insert( pos(Pos, Player) ).
 		
-		% End of game update: did we win, loose, or draw?
-        forall percept(winner(Player))  do insert( winner(Player) ).
-        forall percept(draw)  do insert( draw ).
+	% End of game update: did we win, loose, or draw?
+    forall percept(winner(Player))  do insert( winner(Player) ).
+    forall percept(draw)  do insert( draw ).
 		
-		%% put the latest turn percept in.
-		if percept(turn(Player)), bel(turn(OldPlayer)) then delete(turn(OldPlayer)) + insert(turn(Player)).
+	%% put the latest turn percept in.
+	if percept(turn(Player)), bel(turn(OldPlayer)) then delete(turn(OldPlayer)) + insert(turn(Player)).
 }

@@ -1,0 +1,9 @@
+use TTTknowledge as knowledge.
+use actions as actionspec.
+
+module init {
+	% set a goal to win.
+	if true then insert(me(x)) + adopt(winner(x)).
+	% if I am X player, then make a first random move.
+	if true then occupy(Pos) + insert(turn(unknown)).
+}

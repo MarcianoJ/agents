@@ -3,7 +3,6 @@ use robot as actionspec.
 exit=noaction.
 
 % Get a beer from the fridge.
-
 module getbeer {
 	if bel( not(at(fridge)) ) then move_towards(fridge).
 	% we reached fridge.

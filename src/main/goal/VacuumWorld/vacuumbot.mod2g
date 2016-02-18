@@ -15,5 +15,3 @@ module main{
 	% no solution. Keep moving at random 
 	if bel(possiblemove(X)) then move(X).
 }
-
-

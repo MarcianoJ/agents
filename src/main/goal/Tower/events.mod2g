@@ -9,5 +9,5 @@ module events {
 	forall percept(holding(X)),  bel( not(holding(X)) ) do insert( holding(X) ).
 	
 	forall bel( on(X,Y)), not(percept(on(X,Y))) do delete( on(X,Y) ).
-	forall  percept(on(X,Y)), bel(not(on(X,Y)) ) do insert( on(X,Y) ).
+	forall percept(on(X,Y)), bel(not(on(X,Y)) ) do insert( on(X,Y) ).
 }

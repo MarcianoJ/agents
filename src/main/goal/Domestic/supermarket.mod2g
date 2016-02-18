@@ -4,6 +4,5 @@ use supermarket as actionspec.
 order  = random.
 
 module main {
-		if bel(true) then deliver(beer, 1).
+	if bel(true) then deliver(beer, 1).
 }
-

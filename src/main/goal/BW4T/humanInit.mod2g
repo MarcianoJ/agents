@@ -17,5 +17,4 @@ module humanInit {
 
 	% Exercise 2.1a: insert rules for processing percepts that are sent only at the beginning of a session, 
 	%  and/or need to be initialized.
-	
 }

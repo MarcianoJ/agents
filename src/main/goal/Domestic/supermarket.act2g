@@ -4,4 +4,3 @@ use supermarket as knowledge.
 define deliver(B, N) with
    pre{ B=beer  }
    post{ true }
-	

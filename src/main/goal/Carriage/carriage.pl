@@ -1,1 +1,1 @@
-:- dynamic(carriagePos/1).
+:-dynamic carriagePos/1.

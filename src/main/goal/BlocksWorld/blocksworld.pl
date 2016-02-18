@@ -1,9 +1,4 @@
-:- dynamic(on/2).
-:- dynamic(clear/0).
-:- dynamic(clear/1).
-:- dynamic(target/2).
-:- dynamic(allClear/0).
-:- dynamic(myTurn/0).
+:-dynamic on/2, clear/0, clear/1, target/2, allClear/0, myTurn/0.
 
 % only blocks can be on top of another object.
 block(X) :- on(X, _).

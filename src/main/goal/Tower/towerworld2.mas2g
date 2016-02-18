@@ -8,4 +8,3 @@ define towerbuilder as agent {
 launchpolicy {
     when * launch towerbuilder.
 }
-

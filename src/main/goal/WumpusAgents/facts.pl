@@ -1,4 +1,3 @@
-:- dynamic(wumpusIsAlive/0).
-:- dynamic(insideCave/0).
+:- dynamic wumpusIsAlive/0, insideCave/0.
 
 outsideCave :- not(insideCave).

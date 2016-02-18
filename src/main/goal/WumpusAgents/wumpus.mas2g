@@ -8,6 +8,3 @@ define wumpus as agent {
 launchpolicy{
 	when * launch wumpus.
 }
-
-
-

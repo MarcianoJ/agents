@@ -7,5 +7,3 @@ define forward with
 define turn(X) with
 	pre{ (X==left; X==right) }
 	post{ true }
-
-	

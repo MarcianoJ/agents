@@ -3,13 +3,11 @@ use "vacuumworld-1.0.0.jar" as environment with
  	%level="worlds/test20x12.vwl", 
 	generation="2 s",
 	level="4".
-	
 
 define vacuumbot as agent {
 	use vacuumbot as main module.
 	use vacuumEvents as event module.
 } 
-
 
 launchpolicy {
 	when * launch vacuumbot.

@@ -1,8 +1,4 @@
-:-dynamic(holding/1).
-:-dynamic(on/2).
-:-dynamic(block/1).
-:-dynamic(target/2).
-:-dynamic(maintain/0).
+:-dynamic holding/1, on/2, block/1, target/2, maintain/0.
 
 % Assume there is enough room to put all blocks on the table.
 % This is actually only true for up to 13 blocks in the Tower Environment.

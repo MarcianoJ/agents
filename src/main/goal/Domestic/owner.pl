@@ -1,2 +1,1 @@
-:-dynamic(haveBeer/0).
-:-dynamic(sippingbeer/0).
+:-dynamic haveBeer/0, sippingbeer/0.

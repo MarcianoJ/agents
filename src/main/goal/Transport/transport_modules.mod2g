@@ -10,6 +10,5 @@ module main {
 	% you can always go home
 	if bel(home(X)) then goto(X).
 	
-	if  goal(delivered_order(C)) then deliverOrder.
+	if goal(delivered_order(C)) then deliverOrder.
 }
-

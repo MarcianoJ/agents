@@ -1,6 +1,5 @@
 use robot as knowledge.
 
-
 module events {
 	% Update at percept.
 	forall bel( at(X) ) do insert( not(at(X)) ).

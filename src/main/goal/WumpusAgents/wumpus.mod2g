@@ -6,9 +6,7 @@ use wumpus as actionspec.
 order=random.
 
 module wumpus {
-		if bel( true ) then forward.
-		if bel( true ) then turn(left).
-		if bel( true ) then turn(right).
+	if bel( true ) then forward.
+	if bel( true ) then turn(left).
+	if bel( true ) then turn(right).
 }
-
-

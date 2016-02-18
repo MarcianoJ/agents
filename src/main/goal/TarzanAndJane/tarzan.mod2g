@@ -15,7 +15,6 @@ define non_conflicting_meeting_invitation(Inviter, Date, Time, Duration, Attende
 
 define meeting_invitation_accepted_by_all(Date, Time, Duration, Attendees) as
 	goal(meeting(Date, Time, Duration, Attendees)), bel(del(Attendees, tarzan, Others), forall(member(X, Others), receivedAccept(X, meeting(Date, Time, Duration, Attendees)))).
-
 	
 module main{
 	% send invitations
@@ -29,5 +28,3 @@ module main{
 	if meeting_invitation_accepted_by_all(Date, Time, Dur, Att)
 		then createMeeting(Date, Time, Dur, Att).
 }
-
-

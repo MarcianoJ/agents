@@ -1,2 +1,1 @@
 nrOfPrintedLines(10).
-

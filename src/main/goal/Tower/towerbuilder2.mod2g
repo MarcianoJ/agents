@@ -5,7 +5,6 @@ use placeBlock.
 
 order=linear.
 
-
 module main {
 	% pick up a block if you can and want to.
 	if a-goal( holding(X) ) then pickup(X).
@@ -17,6 +16,3 @@ module main {
 	% no need to check whether we're holding a block because of linear order.
 	if true then nil.
 }
-
-
-

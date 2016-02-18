@@ -7,11 +7,9 @@ use servebeer.
 order=random.
 
 module main {
-		% always prepare to serve beer.
-		if bel( not(holdingbeer) ) then adopt( holdingbeer ).		
+	% always prepare to serve beer.
+	if bel( not(holdingbeer) ) then adopt( holdingbeer ).		
 		
-		if a-goal( holdingbeer ) then getbeer.
-		if bel( holdingbeer ) then servebeer.
+	if a-goal( holdingbeer ) then getbeer.
+	if bel( holdingbeer ) then servebeer.
 }
-
-

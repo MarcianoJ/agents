@@ -44,7 +44,6 @@ translate(Sender,atBox(Color),T) :- strjoin(['I am at a ',Color,' block'],T).
 translate(Sender,in(Sender,Place),T) :- strjoin(['I am in room ',Place],T).
 translate(Sender,holding(Sender,Color),T) :- strjoin(['I have a ',Color,' block'],T).
 		
-
 % ask messages
 translate(Sender,int(at(unknown, Room)),T) :- strjoin(['What is in room ',Room,'?'],T).
 translate(Sender,int(areClose(Player)),T) :- strjoin([Player,', are you close'],T).

@@ -1,1 +1,1 @@
-:-dynamic(nrOfPrintedLines/1).
+:-dynamic nrOfPrintedLines/1.

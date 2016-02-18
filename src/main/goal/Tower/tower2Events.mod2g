@@ -1,5 +1,4 @@
 use tower as knowledge.
-
 use adoptgoal.
 
 % a block is *in position* if it achieves a goal.
@@ -7,10 +6,8 @@ define inPosition(X) as goal-a( tower([X| T]) ).
 		
 define constructiveMove(X, Y) as 
 	a-goal( tower([X, Y | T]) ), bel( tower([Y | T]), clear(Y), (clear(X) ; holding(X)) ) .
-
 	
 module event{
-		
 	% first, process percepts from Tower World environment.
 	% rules below assume full observability.
 	forall bel(block(X)), not( percept( block(X) ) )  do delete( block(X) ).

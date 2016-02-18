@@ -1,17 +1,11 @@
-masTest{
-	
-	mas = "HelloWorld10x.mas2g".
-	timeout = 0. % seconds
-	
-	helloWorldAgent {
-		testPrinted10x {
-			do print("Test that agent prints Hello, world! 10 times:").
-			
-			assert bel(nrOfPrintedLines(0)) : "counter should be initially 0".
+use HelloWorld10x.
+use prolog as knowledge.
+use helloWorldAgent10x.
 
-			evaluate {
-				atend bel(nrOfPrintedLines(10)).
-			} in do main.
-		}
-	}
+test main with
+	pre { bel(nrOfPrintedLines(0)) }
+	post { bel(nrOfPrintedLines(10)) }
+	
+helloWorldAgent {
+	do main.
 }

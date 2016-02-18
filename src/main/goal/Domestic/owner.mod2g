@@ -5,5 +5,5 @@ use ownerGoals as goals.
 order=random.
 
 module main {
-		if bel(true) then sip(beer).
+	if bel(true) then sip(beer).
 }

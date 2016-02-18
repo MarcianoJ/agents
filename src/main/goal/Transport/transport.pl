@@ -1,8 +1,4 @@
-:-dynamic(order/2).
-:-dynamic(in/2).
-:-dynamic(loc/2).
-:-dynamic(home/1).
-
+:-dynamic order/2, in/2, loc/2, home/1.
 
 ordered(C,P) :- order(C,Y), member(P,Y).
 loaded_order(C) :- order(C,O), loaded(O).

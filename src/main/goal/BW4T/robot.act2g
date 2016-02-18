@@ -6,7 +6,6 @@ define goTo(Location) with
 	pre { not(state(traveling)) }
 	post { true }
 
-
 % Exercise 2.3a: insert a specification for the goToBlock(Block) action.
 
 % Exercise 2.3b: insert a specification for the pickUp action.

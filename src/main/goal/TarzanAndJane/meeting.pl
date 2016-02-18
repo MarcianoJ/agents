@@ -1,8 +1,8 @@
-:-dynamic(receivedInvitation/2).  % invitations that we received.
-:-dynamic(sentInvitation/2). % invitations that we sent
-:-dynamic(receivedAccept/2). % accepts that we received
-:-dynamic(sentAccept/2). % accepts that we sent 
-:-dynamic(meeting/4). % meetings that all agreed on.
+:-dynamic receivedInvitation/2,  % invitations that we received.
+	sentInvitation/2, % invitations that we sent
+	receivedAccept/2, % accepts that we received
+	sentAccept/2, % accepts that we sent 
+	meeting/4. % meetings that all agreed on.
 
 % meeting conflicts if there is a scheduled meeting that overlaps in time and shares at least one attendee.
 % case 1: an existing meeting starts after the meeting being examined begins and begins before that meeting ends. 

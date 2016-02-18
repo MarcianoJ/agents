@@ -14,5 +14,3 @@ define scriptAgent as agent {
 launchpolicy{
    when * launch scriptAgent.
 }
-
-

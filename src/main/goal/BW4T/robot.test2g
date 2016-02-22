@@ -7,7 +7,7 @@ test main with
 	pre { true }
 	in { 
 		% Example: an agent should not drop a block outside a room.
-		never do(putDown), bel(not(in(_))).
+		never done(putDown), bel(not(in(_))).
 				
 		% Assignment 3.1: insert test conditions for the mandatory requirements.
 			

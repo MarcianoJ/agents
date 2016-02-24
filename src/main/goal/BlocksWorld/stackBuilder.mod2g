@@ -1,12 +1,14 @@
-use blocksworld as knowledge.
-use tower as goals.
-use builderBeliefs as beliefs.
-use build.
-use clear.
+use bwknowledge as knowledge.
+use bwbeliefs as beliefs.
+use bwgoals as goals.
+use bwmove as actionspec.
 
-exit=nogoals.
+exit = nogoals.
+
+define constructiveMove(X,Y) as a-goal(tower([X,Y| T])), bel(tower([Y|T])).
+define misplaced(X) as a-goal(tower([X| T])).
 
 module stackBuilder {
-	if goal(tower(T)), bel(not(tower(T))), bel(available(T)) then build(T).
-	if bel(not(clear)) then clear + insert(clear).	
+	if constructiveMove(X,Y) then move(X, Y).
+	if misplaced(X) then move(X, table).
 }

@@ -16,7 +16,7 @@ define	goToBlock(Block) with
 	post{true}
 		
 		
-define	pickUp with
+define	pickUp(Block) with
 	pre { true }
 	post { true }
 		

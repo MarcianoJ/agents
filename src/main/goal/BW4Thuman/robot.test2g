@@ -1,0 +1,21 @@
+use bw4t.
+use robot as knowledge.
+use robot as module.
+timeout = 300.
+
+test main with
+	pre { true }
+	in { 
+		% Example: an agent should not drop a block outside a room.
+		never done(putDown), bel(not(in(_))).
+				
+		% Assignment 3.1: insert test conditions for the mandatory requirements.
+			
+		% Assignment 3.2: insert any additional conditions for furhter requirements.
+		 
+	}
+	post { true }
+	
+robot {
+	do main until bel(sequence(Colors),length(Colors,L),sequenceIndex(L)). 
+}

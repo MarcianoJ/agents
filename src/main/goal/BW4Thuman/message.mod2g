@@ -1,4 +1,5 @@
-use robot as knowledge.
+use human as knowledge.
+%use robot as knowledge.
 use messageTranslation as knowledge.
 use human as actionspec.
 

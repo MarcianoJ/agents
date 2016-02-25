@@ -1,16 +1,11 @@
-% MAS that launches a simple script agent that prints a script to the standard output.
-% The HelloWorldEnvironment.jar file is used to enable the agent to print text. This
-% environment returns information via percepts about the last text printed and the number
-% of times the printText action has been performed.
-
 use "HelloWorldEnvironment-1.1.0.jar" as environment.
 
-define scriptAgent as agent {
-	use ScriptAgent as main module.
-	use ScriptInit as init module.
-	use ScriptEvent as event module.
+define helloWorldAgent as agent {
+	use printScript as main module.
+	use updateScriptCounter as event module.
+	use initScriptCounter as init module.
 }
 
-launchpolicy{
-   when * launch scriptAgent.
+launchpolicy {
+	when * launch helloWorldAgent.
 }

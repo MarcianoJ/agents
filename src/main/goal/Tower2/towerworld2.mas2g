@@ -1,0 +1,10 @@
+use "tower-1.2.0.jar" as environment.
+
+define towerbuilder as agent {
+	use towerbuilder2 as main module.
+	use tower2Events as event module.
+}
+
+launchpolicy {
+    when * launch towerbuilder.
+}

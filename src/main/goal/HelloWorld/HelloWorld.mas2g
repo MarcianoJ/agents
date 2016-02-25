@@ -1,5 +1,5 @@
 define helloWorldAgent as agent {
-	use helloWorld10x as main module.
+	use helloWorld as main module.
 }
 
 launchpolicy {

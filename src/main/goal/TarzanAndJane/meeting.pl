@@ -1,7 +1,6 @@
 :-dynamic receivedInvitation/2,  % invitations that we received.
 	sentInvitation/2, % invitations that we sent
 	receivedAccept/2, % accepts that we received
-	sentAccept/2, % accepts that we sent 
 	meeting/4. % meetings that all agreed on.
 
 % meeting conflicts if there is a scheduled meeting that overlaps in time and shares at least one attendee.

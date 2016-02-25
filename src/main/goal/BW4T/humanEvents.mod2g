@@ -12,7 +12,7 @@ module humanEvents {
 	
 	if percept(goToBlock(Block)) then insert(performGoToBlock(Block)).
 	
-	if percept(pickUp) then insert(performPickUp).
+	if percept(pickUp(Block)) then insert(performPickUp(Block)).
 	
 	if percept(putDown) then insert(performPutDown).
 }

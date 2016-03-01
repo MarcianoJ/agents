@@ -1,4 +1,4 @@
-use "ElevatorSim-1.3.0.jar" as environment with 
+use "ElevatorSim-1.3.2.jar" as environment with 
 	Simulation = "Random Rider Insertion",	Floors = 10, Cars = 3,
 	RandomSeed=635359, Capacity=8, People=20, 
 	InsertionTime=50000, 

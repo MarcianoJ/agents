@@ -7,7 +7,7 @@
 		<dest>${project.build.directory}/agents/</dest>
 	</properties>
 
-	<version>1.2.0-SNAPSHOT</version>
+	<version>2.0.0</version>
 	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
 	<name>goal agents</name>

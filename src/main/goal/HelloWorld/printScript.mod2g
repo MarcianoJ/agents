@@ -5,5 +5,5 @@ exit=nogoals.
 
 module printScript {
 	if goal( nrOfPrintedLines(_) ), bel( nrOfPrintedLines(LineNr), NextLine is LineNr+1, script(NextLine, Text) )
-		then printText(Text) + print(Text).
+		then printText(Text).
 }

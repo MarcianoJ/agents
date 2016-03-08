@@ -1,0 +1,12 @@
+use bwknowledge as knowledge.
+%use bwbeliefs as beliefs.
+%use clearBlocks as goals.
+use bwmove as actionspec.
+
+%exit = nogoals.
+order = random.
+
+module clearBlocks {
+	if bel(on(X, Y), block(Y)) then move(X, table).
+%	if true then insert(true).
+}

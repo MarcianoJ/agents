@@ -1,0 +1,1 @@
+on(b1,table), on(b2,table), on(b3,table), on(b4,table), on(b5,table), on(b6,table), on(b7,table).

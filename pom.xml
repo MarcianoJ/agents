@@ -224,6 +224,17 @@
 									<outputDirectory>${dest}BW4T/</outputDirectory>
 									<overWrite>false</overWrite>
 								</artifactItem>
+								<artifactItem>
+									<groupId>eishub</groupId>
+									<artifactId>blocksworld</artifactId>
+									<version>1.1.1</version>
+									<type>zip</type>
+									<classifier>doc</classifier>
+									<includes>*/*.pdf</includes>
+									<outputDirectory>${dest}BlocksWorld/</outputDirectory>
+									<overWrite>false</overWrite>
+								</artifactItem>
+
 							</artifactItems>
 							<!-- needed to get outputDirectory inside the items work. Why? -->
 							<outputDirectory>${project.build.directory}/agents/</outputDirectory>
@@ -271,7 +282,7 @@
 					</execution>
 				</executions>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

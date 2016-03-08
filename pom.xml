@@ -122,7 +122,7 @@
 								<artifactItem>
 									<groupId>eishub</groupId>
 									<artifactId>blocksworld</artifactId>
-									<version>1.1.0</version>
+									<version>1.1.1</version>
 									<type>jar</type>
 									<overWrite>false</overWrite>
 									<outputDirectory>${dest}BlocksWorld/</outputDirectory>

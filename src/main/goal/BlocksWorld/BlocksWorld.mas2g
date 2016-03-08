@@ -1,4 +1,4 @@
-use "blocksworld-1.1.0.jar" as environment with start=[2,3,0,5,0,7,0].
+use "blocksworld-1.1.1.jar" as environment with start=[2,3,0,5,0,7,0].
 
 define stackBuilder as agent {
 	use stackBuilder as main.

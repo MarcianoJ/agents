@@ -3,6 +3,7 @@ use tower as knowledge.
 define constructiveMove(X, Y) as
 	a-goal( tower([X,Y|T]) ), bel( tower([Y|T]), clear(Y), (clear(X) ; holding(X)) ).
 define misplaced(X) as a-goal( on(Y, Z) ), bel( above(X, Z); above(X, Y) ).
+define inPosition(X) as goal-a( tower([X|T]) ).
 
 module twrevents {
 	% assumes full observability
@@ -20,15 +21,15 @@ module twrevents {
     if not(goal(holding(_))), misplaced(X) then adopt(holding(X)).
     
     if goal( holding(X) ) then {
-		% first reason: cannot pick up block X because it’s not clear.
+		% first reason: cannot pick up block X because it's not clear.
 		if not(bel( clear(X) )) then drop( holding(X) ).
 		% second reason: cannot pick up block X because now holding other block!
 		if bel( holding(_) ) then drop( holding(X) ).
-		% third reason: block X is already in position, don’t touch it.
+		% third reason: block X is already in position, don't touch it.
 		if inPosition( X ) then drop( holding(X) ).
 		% fourth reason: we can do better by moving another block constructively.
 		listall L <- constructiveMove(Y,Z) do {
-			if bel(not(L=[]), not(member([X,_,_],L))) then drop( holding(X) ).
+			if bel(not(L=[]), not(member([X,_],L))) then drop( holding(X) ).
 		}
 	}
 }

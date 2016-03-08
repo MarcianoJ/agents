@@ -1,7 +1,7 @@
 use "blocksworld-1.1.1.jar" as environment with start="bwconfigEx1.txt".
 
 define stackBuilder as agent {
-	use stackBuilder as main.
+	use stackBuilder2 as main.
 	use bwevents as event.
 }
 

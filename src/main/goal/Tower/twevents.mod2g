@@ -5,7 +5,7 @@ define constructiveMove(X, Y) as
 define misplaced(X) as a-goal( on(Y, Z) ), bel( above(X, Z); above(X, Y) ).
 define inPosition(X) as goal-a( tower([X|T]) ).
 
-module twrevents {
+module twevents {
 	% assumes full observability
 	forall bel( block(X)), not(percept(block(X)))  do delete( block(X) ).
 	forall percept(block(X)), bel(not(block(X)) ) do insert( block(X) ).
@@ -16,10 +16,7 @@ module twrevents {
 	forall bel( on(X,Y)), not(percept(on(X,Y))) do delete( on(X,Y) ).
 	forall percept(on(X,Y)), bel(not(on(X,Y)) ) do insert( on(X,Y) ).
 	
-	% check for reasons to drop or adopt a goal (goal management).
-	if not(goal(holding(_))), constructiveMove(X,Y) then adopt(holding(X)).
-    if not(goal(holding(_))), misplaced(X) then adopt(holding(X)).
-    
+	% check for reasons to drop or adopt a goal (goal management).    
     if goal( holding(X) ) then {
 		% first reason: cannot pick up block X because it's not clear.
 		if not(bel( clear(X) )) then drop( holding(X) ).
@@ -31,5 +28,7 @@ module twrevents {
 		listall L <- constructiveMove(Y,Z) do {
 			if bel(not(L=[]), not(member([X,_],L))) then drop( holding(X) ).
 		}
-	}
+	}	
+	if not(goal(holding(_))), constructiveMove(X,Y) then adopt(holding(X)).
+    if not(goal(holding(_))), misplaced(X), bel(clear(X)) then adopt(holding(X)).
 }

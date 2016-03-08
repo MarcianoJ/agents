@@ -2,7 +2,7 @@ use "tower-1.2.0.jar" as environment.
 
 define towerbuilder as agent {
 	use towerbuilder as main module.
-	use events as event module.
+	use twrevents as event module.
 }
 
 launchpolicy {

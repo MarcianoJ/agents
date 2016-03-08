@@ -2,16 +2,8 @@ use tower as knowledge.
 use towerGoal as goals.
 use tower as actionspec.
 
-% a block is misplaced if it is not in position.
-%define misplaced(X) as a-goal( tower([X|T]) ).
-% a block X is an obstructing block if it prevents moving a block Y in position
-% either because there is a block above the target block,
-% or because a block above Y prevents moving it.
-%define obstructingBlock(X) as a-goal( on(Y,Z) ), bel( above(X,Z); above(X,Y) ).
-% moving X on top of Y is a constructive move if that move results in X being in position.
-define constructiveMove(X,Y) as a-goal( tower([X,Y|T]) ), bel( tower([Y|T]), clear(Y), (clear(X) ; holding(X)) ).
-% a block is *in position* if it achieves a goal.
-%define inPosition(X) as goal-a( tower([X|T]) ). 
+define constructiveMove(X, Y) as
+	a-goal( tower([X,Y|T]) ), bel( tower([Y|T]), clear(Y), (clear(X) ; holding(X)) ).
 	
 module towerbuilder {
 	if a-goal( holding(X) ) then pickup(X).

@@ -2,8 +2,7 @@ use tower as knowledge.
 
 define constructiveMove(X, Y) as
 	a-goal( tower([X,Y|T]) ), bel( tower([Y|T]), clear(Y), (clear(X) ; holding(X)) ).
-define misplaced(X) as a-goal( on(Y, Z) ), bel( above(X, Z); above(X, Y) ).
-define inPosition(X) as goal-a( tower([X|T]) ).
+define misplaced(Z) as a-goal(tower([X,Y|T])), bel(above(Z,X) ; above(Z,Y)).
 
 module twevents {
 	% assumes full observability
@@ -23,7 +22,7 @@ module twevents {
 		% second reason: cannot pick up block X because now holding other block!
 		if bel( holding(_) ) then drop( holding(X) ).
 		% third reason: block X is already in position, don't touch it.
-		if inPosition( X ) then drop( holding(X) ).
+		if goal-a( tower([X|T]) ) then drop( holding(X) ).
 		% fourth reason: we can do better by moving another block constructively.
 		listall L <- constructiveMove(Y,Z) do {
 			if bel(not(L=[]), not(member([X,_],L))) then drop( holding(X) ).

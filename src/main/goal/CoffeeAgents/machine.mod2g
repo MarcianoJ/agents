@@ -1,32 +1,23 @@
 % General machine, can be either coffeemaker or coffeegrinder.
-% This machine tries to make and deliver products according to its goals and incoming requests.
+% This machine tries to make and deliver products according to its goals.
 use coffee as knowledge.
 use coffee as actionspec.
 exit=nogoals.
 
 module machine {
-	% If we don't know yet, ask everyone else what they can make
-	if not(bel(canProduce(_,_))) then allother.send?(canProduce(_)).
-
-	% If another machine needs a product and we have it, then deliver product.
-	if goal(delivered(Machine, Product)), bel(have(Product)) then
-		(Machine).send(have(Product)) + insert(delivered(Machine, Product)).
-		
-	% if we get here, we have a request for a product but we don't have it yet.
-	if goal(delivered(Machine, Product)) then adopt(have(Product)).
+	% if another machine needs a product and we have it, then deliver that product.
+	if goal(delivered(Machine,Product)), bel(have(Product)) then
+		(Machine).send(have(Product)) + insert(delivered(Machine,Product)).
 	
-	% if we get here, we need to produce something ourselves.
+	% if we want to have a product and we can make it ourselves, then do so.
+	if goal(have(Product)), bel(canMake(Product)) 
+		then make(Product).
 	
-	% If we want to have a Product and we can make it, then make it.
-	if goal(have(Product)), bel(canMake(Product)) then make(Product).
-	
-	% if we get here, we can't make the product now.
-	% then we either can produce it but need an ingredient, or need to order it 
-	% case 1: we need an ingredient.
-	if goal(have(Product)), bel(canProduce(Product), requiredFor(Product, Ingredient)) 
-		then adopt(have(Ingredient)).
-	
-	% case 2: we can't produce it and need to order it.	
-	if goal(have(Product)), bel(not(canProduce(Product))) 
-		then allother.send!(have(Product)).
+	% if we can't produce something ourselves we need to order it.	
+	% if we know who can, tell that machine to make it for us.
+	if goal(have(Product)), bel(canProduce(Machine,Product))
+		then (Machine).send!(have(Product)).
+	% if we don't know that, ask everyone else what they can make for us.
+	if goal(have(Product)), not(bel(canProduce(_,Product)))
+		then allother.send?(canProduce(_)).
 }

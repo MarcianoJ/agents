@@ -1,6 +1,6 @@
 use coffee as knowledge.
 	
-% A Product can be made if we have all the required ingredients and this machine has the ability to make it.
+% If the Product can be made by us, we will have done so after this action
 define make(Product) as internal with 
 	pre { canMake(Product) }
 	post { have(Product) }

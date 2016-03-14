@@ -1,9 +1,9 @@
-%%%%% Event module shared by agents that are part of the coffee.mas2g multi-agent system. %%%%%
 use coffee as knowledge.
 
 module coffeeEvents {
 	% answer information requests.
-	forall (Machine).sent?(canProduce(_)), bel(canProduce(Product)) do (Machine).send:(canProduce(Product)).
+	forall (Machine).sent?(canProduce(_)), bel(canProduce(Product) ; have(Product)) 
+		do (Machine).send:(canProduce(Product)).
 	
 	% process information from other agents.
 	forall (Machine).sent:(canProduce(Product)) do insert(canProduce(Machine,Product)).
@@ -11,6 +11,13 @@ module coffeeEvents {
 	% process delivery requests.
 	forall (Machine).sent!(have(Product)) do adopt(delivered(Machine,Product)).
 
-	% process actual deliveries
+	% process actual deliveries.
 	forall (Machine).sent(have(Product)) do insert(have(Product)).
+	
+	% we have a request for a product but we don't have it yet.
+	if goal(delivered(Machine, Product)) then adopt(have(Product)).
+	
+	% we can produce it but need an ingredient.
+	if goal(have(Product)), bel(canProduce(Product), requiredFor(Product,Ingredient)) 
+		then adopt(have(Ingredient)).
 }

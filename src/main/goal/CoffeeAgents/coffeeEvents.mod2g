@@ -2,9 +2,15 @@
 use coffee as knowledge.
 
 module coffeeEvents {
-	% store delivery requests.
-	forall (Machine).sent!(have(Product)) do adopt( delivered(Machine,Product) ) .
+	% answer information requests.
+	forall (Machine).sent?(canProduce(_)), bel(canProduce(Product)) do (Machine).send:(canProduce(Product)).
+	
+	% process information from other agents.
+	forall (Machine).sent:(canProduce(Product)) do insert(canProduce(Machine,Product)).
+	
+	% process delivery requests.
+	forall (Machine).sent!(have(Product)) do adopt(delivered(Machine,Product)).
 
-	% store actual deliveries
+	% process actual deliveries
 	forall (Machine).sent(have(Product)) do insert(have(Product)).
 }

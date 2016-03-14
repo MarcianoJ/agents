@@ -2,29 +2,31 @@
 % This machine tries to make and deliver products according to its goals and incoming requests.
 use coffee as knowledge.
 use coffee as actionspec.
-exit = never. % can't exit, more requests may come later.
-order = linear.
+exit=nogoals.
 
 module machine {
+	% If we don't know yet, ask everyone else what they can make
+	if not(bel(canProduce(_,_))) then allother.send?(canProduce(_)).
+
 	% If another machine needs a product and we have it, then deliver product.
-	if a-goal(delivered(Machine, Product)), bel(have(Product)) then
+	if goal(delivered(Machine, Product)), bel(have(Product)) then
 		(Machine).send(have(Product)) + insert(delivered(Machine, Product)).
 		
 	% if we get here, we have a request for a product but we don't have it yet.
-	if a-goal(delivered(Machine, Product)) then adopt(have(Product)).
+	if goal(delivered(Machine, Product)) then adopt(have(Product)).
 	
 	% if we get here, we need to produce something ourselves.
 	
 	% If we want to have a Product and we can make it, then make it.
-	if a-goal( have(Product) ), bel(canMake(Product)) then make(Product).
+	if goal(have(Product)), bel(canMake(Product)) then make(Product).
 	
 	% if we get here, we can't make the product now.
 	% then we either can produce it but need an ingredient, or need to order it 
 	% case 1: we need an ingredient.
-	if a-goal( have(Product) ), bel(canProduce(Product), requiredFor(Product, Ingredient)) 
+	if goal(have(Product)), bel(canProduce(Product), requiredFor(Product, Ingredient)) 
 		then adopt(have(Ingredient)).
 	
 	% case 2: we can't produce it and need to order it.	
-	if a-goal( have(Product) ), bel(not(canProduce(Product))) 
+	if goal(have(Product)), bel(not(canProduce(Product))) 
 		then allother.send!(have(Product)).
 }

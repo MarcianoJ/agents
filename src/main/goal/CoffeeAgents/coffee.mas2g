@@ -1,6 +1,6 @@
 define maker as agent {
 	use machine as main module.
-	use coffeeMakerInit as init module.
+	use makerInit as init module.
 	use coffeeEvents as event module.
 } 
 

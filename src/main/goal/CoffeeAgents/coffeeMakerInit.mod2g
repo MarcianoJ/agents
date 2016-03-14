@@ -1,7 +1,0 @@
-use coffee as knowledge.
-use coffeeMakerBeliefs as beliefs.
-
-% we just need this to load goals and beliefs.
-module coffeeMakerInit {
-	if true then adopt(have(coffee)).
-}

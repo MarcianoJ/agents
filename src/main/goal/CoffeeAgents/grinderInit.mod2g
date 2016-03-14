@@ -1,6 +1,6 @@
 use coffee as knowledge.
 
-% we just need this to load goals and beliefs.
 module grinderInit {
-	if true then insert(me(grinder)).
+	if true then insert(canProduce(grounds)).
+	if true then adopt(delivered(grounds)).
 }

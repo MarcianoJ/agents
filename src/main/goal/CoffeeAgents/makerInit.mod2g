@@ -1,0 +1,6 @@
+use coffee as knowledge.
+
+module makerInit {
+	if true then insert(have(water), have(beans), canProduce(coffee), canProduce(espresso)).
+	if true then adopt(have(coffee)).
+}

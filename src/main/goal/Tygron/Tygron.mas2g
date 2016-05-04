@@ -8,5 +8,5 @@ define tygronagent as agent {
 }
 
 launchpolicy {
-	when entity launch tygronagent.
+	when name=entity launch tygronagent.
 }

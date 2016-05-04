@@ -206,6 +206,7 @@
 									<artifactId>tygronenv</artifactId>
 									<version>1.0.3</version>
 									<type>jar</type>
+									<classifier>jar-with-dependencies</classifier>
 									<overWrite>false</overWrite>
 									<outputDirectory>${dest}Tygron/</outputDirectory>
 								</artifactItem>

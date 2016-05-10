@@ -7,7 +7,7 @@
 		<dest>${project.build.directory}/agents/</dest>
 	</properties>
 
-	<version>2.0.6</version>
+	<version>2.0.7</version>
 	<groupId>com.github.goalhub</groupId>
 	<artifactId>agents</artifactId>
 	<name>goal agents</name>
@@ -204,7 +204,7 @@
 								<artifactItem>
 									<groupId>eishub</groupId>
 									<artifactId>tygronenv</artifactId>
-									<version>1.0.5</version>
+									<version>1.0.6</version>
 									<type>jar</type>
 									<classifier>jar-with-dependencies</classifier>
 									<overWrite>false</overWrite>

@@ -1,14 +1,19 @@
 use dummy as knowledge.
 use tygron as actionspec.
-use somegoal as goals.
+use municipalitygoal as goals.
 
 exit=nogoals.
 
+
 module helloWorld {
 	% sell the first piece of land.
-	if bel(lands([land(ID,Owner, Poly)|MORE]), 
+	if a-goal(offeredLand), bel(lands([land(ID,Owner, Poly)|MORE]), 
 		stakeholders(L), 
 		member(['Inhabitants',BuyerID,_],L))
-		then map_sell_land(BuyerID, Poly,400.0).
+		then map_sell_land(BuyerID, Poly,400.0) + insert(offeredLand).
 
+	if a-goal(soldLand), goal-a(offeredLand),
+		bel(requests(Rs), 
+			member( request('INTERACTION', RequestID, [answer(AnswerID, DefaultAnswer) | OtherAnswers]), Rs))
+		then popup_answer(RequestID, AnswerID) + insert(soldLand).
 }

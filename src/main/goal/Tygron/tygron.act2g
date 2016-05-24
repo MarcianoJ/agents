@@ -7,3 +7,8 @@ define	building_plan_construction(Id, Level, MultiPolygon) with
 define map_sell_land(Buyer, Poly, Price) with 
    pre{ true }
    post{ true }
+
+define popup_answer(RequestID, AnswerID) with
+   pre{ true }
+   post{ true }
+

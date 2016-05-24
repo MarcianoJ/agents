@@ -13,4 +13,11 @@ module helloWorld {
 		buildings(FS), member([Name,Id,L],FS), member('ROAD',L)) 
 		then building_plan_construction(Id, 1, Polygon).
 
+	if bel(
+		% find some land that we own and get the polygon
+		lands(Lands), member(land(_,'Inhabitants',Polygon),Lands),
+		% find a build-road function
+		buildings(FS), member([Name,FId,L],FS), member('ROAD',L)) 
+		then building_plan_construction(FId, 1, Polygon).
+
 }

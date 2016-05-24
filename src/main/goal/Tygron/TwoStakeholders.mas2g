@@ -1,13 +1,21 @@
 use "tygronenv-1.0.9-SNAPSHOT-jar-with-dependencies.jar" as environment 
 	with project = "testgoalmap", 
-	stakeholders=["Municipality", "Barf"] .
+	stakeholders=["Municipality", "Inhabitants"] .
 
-define tygronagent as agent {
-	use tygron as main module.
+define municipality as agent {
+	use municipality as main module.
+	use tygronEvents as event module.
+	use tygronInit as init module.
+}
+
+define inhabitant as agent {
+	use inhabitant as main module.
 	use tygronEvents as event module.
 	use tygronInit as init module.
 }
 
 launchpolicy {
-	when name=Municipality launch tygronagent.
+	when name=MUNICIPALITY launch municipality.
+	when name=INHABITANTS launch inhabitant.
+
 }

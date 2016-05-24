@@ -5,19 +5,12 @@ use somegoal as goals.
 exit=nogoals.
 
 module helloWorld {
-	% find a function to build a road (always 1 floor)
-	if bel(
-		stakeholders(L), 
-		member(['Inhabitants',BuyerID,_],L),
-		lands(Lands), member([_,Me,Polygon],Lands),
-		buildings(FS), member([Name,Id,L],FS), member('ROAD',L)) 
-		then building_plan_construction(Id, 1, Polygon).
-
 	if bel(
 		% find some land that we own and get the polygon
 		lands(Lands), member(land(_,'Inhabitants',Polygon),Lands),
 		% find a build-road function
-		buildings(FS), member([Name,FId,L],FS), member('ROAD',L)) 
+		functions(FS), member([Name,FId,L],FS), member('ROAD',L)) 
+		% and build on the land we found
 		then building_plan_construction(FId, 1, Polygon).
 
 }
